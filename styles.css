@@ -1,3 +1,10 @@
+/* ==========================================================================
+   Week 1 
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design System & CSS Custom Properties (:root)
+   -------------------------------------------------------------------------- */
 :root {
   /* Brand Color Palette */
   --color-primary: #4F46E5;        /* Tech Marketplace Indigo */
@@ -306,16 +313,19 @@ a:hover {
   display: flex;
   align-items: center;
   background: linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 100%);
-  padding: 3.5rem 0;
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
   border-bottom: 1px solid var(--color-border);
 }
 
 .hero-container {
   display: flex;
-  align-items: flex-start; /* Top-align content leaving open space below CTAs */
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 3rem;
+  gap: clamp(2rem, 4vw, 4rem);
   width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 clamp(2rem, 5vw, 4rem);
 }
 
 /* --------------------------------------------------------------------------
@@ -323,7 +333,7 @@ a:hover {
    -------------------------------------------------------------------------- */
 .hero-content {
   flex: 0 0 40%;
-  max-width: 40%;
+  max-width: 480px;
   align-self: flex-start;
   padding-top: 0.5rem;
 }
@@ -343,7 +353,7 @@ a:hover {
 }
 
 .hero-title {
-  font-size: clamp(2rem, 3.4vw, 3rem);
+  font-size: clamp(1.8rem, 4vw, 3rem);
   letter-spacing: -0.03em;
   margin-bottom: 1.15rem;
   line-height: 1.18;
@@ -357,7 +367,7 @@ a:hover {
 }
 
 .hero-subtitle {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
   color: var(--color-text-secondary);
   line-height: 1.65;
   margin-bottom: 2rem;
@@ -375,9 +385,9 @@ a:hover {
    -------------------------------------------------------------------------- */
 .hero-showcase {
   flex: 0 0 calc(60% - 3rem);
-  flex: 0 0 57%;
-  max-width: 57%;
-  min-width: 0; /* Defensive CSS: prevent flex children from bursting container */
+  flex: 0 0 56%;
+  max-width: 56%;
+  min-width: 0;
 }
 
 .slider-wrapper {
@@ -387,6 +397,7 @@ a:hover {
   padding: 1.25rem 1.25rem 1rem;
   box-shadow: var(--shadow-lg);
   position: relative;
+  
 }
 
 /* Slider Top Status Header */
@@ -473,21 +484,27 @@ a:hover {
   width: 100%;
 }
 
-/* Top Portion (Visual): Large product image / visual placeholder container */
+/* Top Portion (Visual): Clean Minimal Image Container / Placeholder */
 .slide-image-container,
 .slide-media {
   width: 100%;
-  height: 185px;
-  background: linear-gradient(145deg, #EEF2FF 0%, #E0E7FF 100%);
+  aspect-ratio: 5/4 !important;
+  height: auto !important;
+  height: clamp(160px, 20vw, 185px);
+  background: linear-gradient(145deg, #F8FAFC 0%, #EEF2F6 100%);
+  background-color: #F1F5F9;
   border-radius: var(--radius-md);
-  padding: 0.85rem;
   position: relative;
-  border: 1px solid var(--color-primary-border);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  display: block;
   margin-bottom: 1rem;
+  transition: background-color var(--transition-base), border-color var(--transition-base);
+}
+
+.slide:hover .slide-image-container {
+  background: linear-gradient(145deg, #F1F5F9 0%, #E2E8F0 100%);
+  border-color: var(--color-primary-border);
 }
 
 .featured-campus-badge {
@@ -502,6 +519,8 @@ a:hover {
   color: #FFFFFF;
   padding: 0.2rem 0.55rem;
   border-radius: var(--radius-pill);
+  z-index: 2;
+  position: absolute;
 }
 
 .slide-graphic-box {
@@ -524,7 +543,11 @@ a:hover {
   color: var(--color-text-secondary);
   font-weight: 500;
   white-space: nowrap;
-  margin-top: auto;
+  margin-top: 0;
+  position: absolute;
+  bottom: 0.65rem;
+  left: 0.65rem;
+  z-index: 2;
 }
 
 .seller-avatar {
@@ -763,4 +786,583 @@ a:hover {
   color: var(--color-text-secondary);
   font-size: 0.95rem;
   line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   7. Catalog Page: Header & Filter Bar
+   -------------------------------------------------------------------------- */
+.catalog-page-main {
+  padding: 3rem 0 5rem;
+  flex: 1;
+}
+
+.catalog-header {
+  margin-bottom: 2.5rem;
+}
+
+.catalog-headline-block {
+  margin-bottom: 1.5rem;
+}
+
+.catalog-headline-block h1 {
+  font-size: 2.25rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.catalog-headline-block p {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+}
+
+/* Category Filter Pills */
+.category-filters-nav {
+  margin-bottom: 1.5rem;
+}
+
+.category-filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  list-style: none;
+}
+
+.filter-pill {
+  display: inline-block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1.15rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.filter-pill:hover {
+  background-color: var(--color-surface-subtle);
+  border-color: var(--color-border-dark);
+  color: var(--color-text-primary);
+}
+
+.filter-pill.active {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.25);
+}
+
+/* Results Status Bar */
+.catalog-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.sort-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sort-indicator strong {
+  color: var(--color-text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   8. Product Grid & Card Architecture
+   -------------------------------------------------------------------------- */
+.product-grid-section {
+  margin-top: 2rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* The Product Card Component */
+.product-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-base);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary-border);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Card Visual Container / Clean Minimal Placeholder */
+.card-image,
+.card-media-container,
+.img-placeholder {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(145deg, #F8FAFC 0%, #EEF2F6 100%);
+  background-color: #F1F5F9;
+  overflow: hidden;
+  display: block;
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color var(--transition-base), filter var(--transition-base);
+}
+
+.product-card:hover .card-image,
+.product-card:hover .card-media-container,
+.product-card:hover .img-placeholder {
+  background: linear-gradient(145deg, #F1F5F9 0%, #E2E8F0 100%);
+  filter: brightness(0.98);
+}
+
+/* Ensure future <img> tags scale seamlessly and fill the container */
+.card-image img,
+.card-media-container img,
+.slide-image-container img,
+.slide-media img,
+.img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Condition Badges */
+.condition-badge {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  z-index: 2;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+}
+
+.badge-like-new {
+  background-color: var(--badge-like-new-bg);
+  color: var(--badge-like-new-text);
+  border: 1px solid #BCF0DA;
+}
+
+.badge-good {
+  background-color: var(--badge-good-bg);
+  color: var(--badge-good-text);
+  border: 1px solid #B4C6FC;
+}
+
+.badge-usable {
+  background-color: var(--badge-usable-bg);
+  color: var(--badge-usable-text);
+  border: 1px solid #FDE68A;
+}
+
+/* Card Body Content */
+.card-body {
+  padding: 1.25rem 1.25rem 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-category-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-primary);
+  margin-bottom: 0.35rem;
+}
+
+.product-title {
+  font-size: 1.1rem;
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.product-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.currency-label {
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.product-description {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   9. Product Card Footer: Split Details (Student Info vs Action CTA)
+   -------------------------------------------------------------------------- */
+.card-footer-split {
+  padding: 0.875rem 1.25rem;
+  background-color: #FAFAFB;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+/* Left Section: Student Details */
+.student-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0; /* Prevents overflow */
+}
+
+.student-name-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.verified-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10B981; /* Green verification indicator */
+  flex-shrink: 0;
+}
+
+.student-meta-item {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta-icon {
+  display: inline-block;
+  font-size: 0.75rem;
+}
+
+.student-phone-link {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  letter-spacing: -0.01em;
+  transition: color var(--transition-fast);
+}
+
+.student-phone-link:hover {
+  color: var(--color-primary);
+}
+
+/* Right Section: Action Button */
+.card-action-block {
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   10. Global Footer Architecture
+   -------------------------------------------------------------------------- */
+.global-footer {
+  margin-top: auto;
+  background-color: #111827;
+  color: #9CA3AF;
+  border-top: 1px solid #1F2937;
+  padding: 4rem 0 2rem;
+  font-size: 0.9rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-brand-col p {
+  margin-top: 1rem;
+  max-width: 320px;
+  line-height: 1.6;
+  color: #9CA3AF;
+}
+
+.footer-brand-logo {
+  color: #FFFFFF;
+}
+
+.footer-brand-logo .brand-accent {
+  color: #818CF8;
+}
+
+.footer-col h4 {
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-nav-link {
+  color: #9CA3AF;
+  transition: color var(--transition-fast);
+}
+
+.footer-nav-link:hover {
+  color: #FFFFFF;
+}
+
+.footer-bottom-bar {
+  padding-top: 2rem;
+  border-top: 1px solid #1F2937;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.copyright-text {
+  color: #9CA3AF;
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.footer-legal-links a {
+  color: #9CA3AF;
+}
+
+.footer-legal-links a:hover {
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   11. Responsive Breakpoints & Defensive Layouts
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .hero,
+  .hero-section {
+    min-height: auto;
+    padding: 3.5rem 0;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .hero-showcase,
+  .hero-content {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .hero-content {
+    align-self: center;
+    padding-top: 0;
+  }
+
+  .slide-inner {
+    text-align: center;
+    gap: 0.85rem;
+  }
+
+  .slide-meta-row,
+  .slide-price-tag,
+  .slide-actions {
+    justify-content: center;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-stats-row {
+    justify-content: center;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-wrapper {
+    height: auto;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+  }
+
+  .nav-actions {
+    margin-left: auto;
+  }
+
+  .hero-section {
+    padding: 2.5rem 0;
+  }
+
+  .slider-wrapper {
+    padding: 0.85rem 0.85rem 0.75rem;
+  }
+
+  .slide {
+    padding: 1rem 0.75rem;
+  }
+
+  .features-section {
+    padding: 3.5rem 0;
+  }
+
+  .catalog-page-main {
+    padding: 2rem 0;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-list {
+    gap: 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.875rem;
+  }
+  .slide-image-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    }
+    .slide-image-frame img ,
+    .slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+    object-position: center !important;
+    }
+
+  .slide-image-container,
+  .slide-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important; 
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    overflow: hidden; 
+    flex: none !important;
+  }
+
+  .slide-title {
+    font-size: 1.15rem;
+  }
+
+  .slide-price-tag .price-amount {
+    font-size: 1.4rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .slider-top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .hero-stats-row {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .card-footer-split {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+
+  .card-action-block .btn {
+    width: 100%;
+  }
 }

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketplace Catalog - CampusMarket</title>
+  <meta name="description" content="Browse verified student listings for textbooks, dorm gear, electronics, and academic supplies on CampusMarket.">
+  <meta property="og:title" content="Marketplace Catalog - CampusMarket">
+  <meta property="og:description" content="Explore campus listings and contact student sellers directly for in-person hand-offs.">
+  <meta property="og:type" content="website">
+  
+  <!-- Central Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Accessible Skip to Main Content Link -->
+  <a href="#main-content" class="skip-link" id="skip-to-content">Skip to main content</a>
+
+  <!-- ======================================================================
+       Global Header & Sticky Navigation
+       ====================================================================== -->
+  <header class="global-header" id="global-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <!-- Brand Identity Logo -->
+        <a href="index.html" class="brand-logo" id="brand-logo" aria-label="CampusMarket Home">
+          <span class="brand-icon-emblem" aria-hidden="true">C</span>
+          <span>Campus<span class="brand-accent">Market</span></span>
+          <span class="campus-tag">University Hub</span>
+        </a>
+
+        <!-- Primary Navigation Links -->
+        <nav class="main-nav" id="main-nav" aria-label="Primary Navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link" id="nav-link-home">Home</a></li>
+            <li><a href="catalog.html" class="nav-link active" id="nav-link-catalog" aria-current="page">Browse Catalog</a></li>
+            <li><a href="index.html#features" class="nav-link" id="nav-link-why">Why Choose Campus Market</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Action CTA -->
+        <div class="nav-actions">
+          <a href="#upload" class="btn btn-primary" id="nav-btn-upload">Upload Items</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       Main Content Landmark: Catalog & Listings
+       ====================================================================== -->
+  <main id="main-content" class="catalog-page-main">
+    <div class="container">
+
+      <!-- Catalog Header & Category Pills -->
+      <header class="catalog-header" id="catalog-header">
+        
+        <div class="catalog-headline-block">
+          
+        <!-- Static Category Pill Navigation -->
+        <nav class="category-filters-nav" aria-label="Product categories">
+          <ul class="category-filter-list" id="category-filter-pills">
+            <li><a href="#all" class="filter-pill active" id="filter-all">All Items</a></li>
+            <li><a href="#textbooks" class="filter-pill" id="filter-textbooks">Books</a></li>
+            <li><a href="#dorm" class="filter-pill" id="filter-dorm">Dorm Furnishings </a></li>
+            <li><a href="#electronics" class="filter-pill" id="filter-electronics">Electronics</a></li>
+            <li><a href="#lab" class="filter-pill" id="filter-lab">Lab Equipments</a></li>
+          </ul>
+        </nav>
+
+        <!-- Results Counter & Status Bar -->
+        <div class="catalog-status-bar" id="catalog-status-bar">
+          <div class="results-count">
+            <span>Showing <strong>8</strong> active student listings</span>
+          </div>
+          <div class="sort-indicator">
+            <span>Sort:</span>
+            <strong>Recently Listed on Campus</strong>
+          </div>
+        </div>
+
+      </header>
+
+      <!-- ==================================================================
+           Responsive Product Cards Grid
+           ================================================================== -->
+      <section class="product-grid-section" id="catalog-grid" aria-labelledby="catalog-title">
+        <div class="product-grid">
+
+          <!-- --------------------------------------------------------------
+               Product Card 1: Calculus Textbook
+               -------------------------------------------------------------- -->
+          <article class="product-card" id="product-1">
+            <span class="condition-badge badge-like-new">Like New</span>
+            <div class="card-image">
+                <img src="images/Calculus_ Early Transcendentals.jpeg" alt="Calculus: Early Transcendentals (9th Ed.)" class="product-image">
+            </div>
+
+            <!-- Card Body Details -->
+            <div class="card-body">
+              <span class="card-category-tag">Mathematics</span>
+              <h2 class="product-title">Calculus: Early Transcendentals (9th Ed.)</h2>
+              <div class="product-price">
+                <span class="currency-label">KES</span> 3,200
+              </div>
+              <p class="product-description">
+                Hardcover Stewart 9th Edition. Immaculate condition, no pencil markings or folded pages. Includes unused WebAssign companion code insert.
+              </p>
+            </div>
+
+            <!-- Card Bottom: Split Student Details (Left) & Action Button (Right) -->
+            <div class="card-footer-split">
+              <div class="student-info-block">
+                <div class="student-name-row">
+                  <span class="verified-dot" title="Verified University Student" aria-hidden="true"></span>
+                  <span>Brian Kiprop</span>
+                </div>
+                <div class="student-meta-item">
+                  <span class="meta-icon" aria-hidden="true">&#128205;</span>
+                  <span>Hall 4, Dorm B12</span>
+                </div>
+                <div class="student-meta-item">
+                  <span class="meta-icon" aria-hidden="true">&#9742;</span>
+                  <a href="tel:+254712345678" class="student-phone-link">+254 712 345 678</a>
+                </div>
+              </div>
+
+              <div class="card-action-block">
+                <a href="#product-1" class="btn btn-outline" id="btn-view-1">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- --------------------------------------------------------------
+               Product Card 2: Mini-Fridge
+               -------------------------------------------------------------- -->
+          <article class="product-card" id="product-2">
+            <span class="condition-badge badge-good">Good</span>
+            <div class="card-image">
+                <img src="images/Mini Fridge.jpeg" alt="Haier 90L Compact Dorm Mini-Fridge" class="product-image">
+
+            </div>
+
+            <div class="card-body">
+              <span class="card-category-tag">Dorm Gear</span>
+              <h2 class="product-title">Haier 90L Compact Dorm Mini-Fridge</h2>
+              <div class="product-price">
+                <span class="currency-label">KES</span> 14,500
+              </div>
+              <p class="product-description">
+                Ultra-quiet compressor with dedicated mini freezer section. Cools drinks rapidly. Minor exterior scuff, immaculate interior shelves.
+              </p>
+            </div>
+
+            <div class="card-footer-split">
+              <div class="student-info-block">
+                <div class="student-name-row">
+                  <span class="verified-dot" title="Verified University Student" aria-hidden="true"></span>
+                  <span>Amina Wanjiku</span>
+                </div>
+                <div class="student-meta-item">
+                  <span class="meta-icon" aria-hidden="true">&#128205;</span>
+                  <span>Mama Ngina Hostel</span>
+                </div>
+                <div class="student-meta-item">
+                  <span class="meta-icon" aria-hidden="true">&#9742;</span>
+                  <a href="tel:+254723456789" class="student-phone-link">+254 723 456 789</a>
+                </div>
+              </div>
+
+              <div class="card-action-block">
+                <a href="#product-2" class="btn btn-outline" id="btn-view-2">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- --------------------------------------------------------------
+               Product Card 3: Graphing Calculator
+               -------------------------------------------------------------- -->
+          <article class="product-card" id="product-3">
+            <span class="condition-badge badge-like-new">Like New</span>
+            <div class="card-image">
+                <img src="images/Calculator.jpeg" alt="TI-84 Plus CE Color Graphing Calculator" class="product-image">
+            </div>
+
+            <div class="card-body">
+              <span class="card-category-tag">Engineering / STEM</span>
+              <h2 class="product-title">TI-84 Plus CE Color Graphing Calculator</h2>
+              <div class="product-price">
+                <span class="currency-label">KES</span> 6,800
+              </div>
+              <p class="product-description">
+                Vibrant backlit color screen with rechargeable lithium battery. Comes with protective slide-on hard case and micro-USB charging cable.
+              </p>
+            </div>
+
+            <div class="card-footer-split">
+              <div class="student-info-block">
+                <div class="student-name-row">
+                  <span class="verified-dot" title="Verified University Student" aria-hidden="true"></span>
+                  <span>David Omondi</span>
+                </div>
+                <div class="student-meta-item">
+                  <span class="meta-icon" aria-hidden="true">&#128205;</span>
+                  <span>Engineering Wing A</span>
+                </div>
+                <div class="student-meta-item">
+                  <span class="meta-icon" aria-hidden="true">&#9742;</span>
+                  <a href="tel:+254734567890" class="student-phone-link">+254 734 567 890</a>
+                </div>
+              </div>
+
+              <div class="card-action-block">
+                <a href="#product-3" class="btn btn-outline" id="btn-view-3">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- --------------------------------------------------------------
+               Product Card 4: LED Study Desk Lamp
+               -------------------------------------------------------------- -->
+          <article class="product-card" id="product-4">
+            <span class="condition-badge badge-like-new">Like New</span>
+            <div class="card-image">
+                <img src="images/study Lamp.jpeg" alt="TaoTronics Eye-Caring LED Study Desk Lamp" class="product-image">
+            </div>
+
+            <div class="card-body">
+              <span class="card-category-tag">Lighting</span>
+              <h2 class="product-title">TaoTronics Eye-Caring LED Study Desk Lamp</h2>
+              <div class="product-price">
+                <span class="currency-label">KES</span> 1,850
+              </div>
+              <p class="product-description">
+                Flicker-free warm and cool illumination with 5 color temperatures and 7 dimming levels. Features built-in 5V USB output for night phone charging.
+              </p>
+            </div>
+
+            <div class="card-footer-split">
+              <div class="student-info-block">
+                <div class="student-name-row">
+                  <span class="verified-dot" title="Verified University Student" aria-hidden="true"></span>
+                  <span>Faith Chebet</span>
+                </div>
+                <div class="student-meta-item">
+                  <span class="meta-icon" aria-hidden="true">&#128205;</span>
+                  <span>Hall 2 East Wing</span>
+                </div>
+                <div class="student-meta-item">
+                  <span class="meta-icon" aria-hidden="true">&#9742;</span>
+                  <a href="tel:+254745678901" class="student-phone-link">+254 745 678 901</a>
+                </div>
+              </div>
+
+              <div class="card-action-block">
+                <a href="#product-4" class="btn btn-outline" id="btn-view-4">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- --------------------------------------------------------------
+               Product Card 5: Molecular Model Kit
+               -------------------------------------------------------------- -->
+          <article class="product-card" id="product-5">
+            <span class="condition-badge badge-good">Good</span>
+            <div class="card-image">
+                <img src="images/Organic Molecule Building Sets.jpeg" alt="Organic Chemistry Molecular Model Set" class="product-image">
+            </div>
+
+            <div class="card-body">
+              <span class="card-category-tag">Chemistry / Biology</span>
+              <h2 class="product-title">Organic Chemistry Molecular Model Set</h2>
+              <div class="product-price">
+                <span class="currency-label">KES</span> 2,400
+              </div>
+              <p class="product-description">
+                Complete 240-piece 3D modeling set with atom centres and flexible single/double bonds. Includes bond disconnect tool. Crucial for CHEM221 stereochemistry.
+              </p>
+            </div>
+
+            <div class="card-footer-split">
+              <div class="student-info-block">
+                <div class="student-name-row">
+                  <span class="verified-dot" title="Verified University Student" aria-hidden="true"></span>
+                  <span>Kevin Mutua</span>
+                </div>
+                <div class="student-meta-item">
+                  <span class="meta-icon" aria-hidden="true">&#128205;</span>
+                  <span>Science Complex Lab 3</span>
+                </div>
+                <div class="student-meta-item">
+                  <span class="meta-icon" aria-hidden="true">&#9742;</span>
+                  <a href="tel:+254756789012" class="student-phone-link">+254 756 789 012</a>
+                </div>
+              </div>
+
+              <div class="card-action-block">
+                <a href="#product-5" class="btn btn-outline" id="btn-view-5">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- --------------------------------------------------------------
+               Product Card 6: Noise Cancelling Headphones
+               -------------------------------------------------------------- -->
+          <article class="product-card" id="product-6">
+            <span class="condition-badge badge-good">Good</span>
+            <div class="card-image">
+                <img src="images/Headphones .jpeg" alt="Sony WH-CH720N Noise-Cancelling Headphones" class="product-image">
+            </div>
+
+            <div class="card-body">
+              <span class="card-category-tag">Audio / Tech</span>
+              <h2 class="product-title">Sony WH-CH720N Noise-Cancelling Headphones</h2>
+              <div class="product-price">
+                <span class="currency-label">KES</span> 7,900
+              </div>
+              <p class="product-description">
+                Dual noise sensor technology with integrated V1 processor. Up to 35-hour battery life. Lightweight ear cushions; ideal for silent library revision.
+              </p>
+            </div>
+
+            <div class="card-footer-split">
+              <div class="student-info-block">
+                <div class="student-name-row">
+                  <span class="verified-dot" title="Verified University Student" aria-hidden="true"></span>
+                  <span>Stacy Achieng</span>
+                </div>
+                <div class="student-meta-item">
+                  <span class="meta-icon" aria-hidden="true">&#128205;</span>
+                  <span>Main Campus Library</span>
+                </div>
+                <div class="student-meta-item">
+                  <span class="meta-icon" aria-hidden="true">&#9742;</span>
+                  <a href="tel:+254767890123" class="student-phone-link">+254 767 890 123</a>
+                </div>
+              </div>
+
+              <div class="card-action-block">
+                <a href="#product-6" class="btn btn-outline" id="btn-view-6">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- --------------------------------------------------------------
+               Product Card 7: Ergonomic Mesh Study Chair
+               -------------------------------------------------------------- -->
+          <article class="product-card" id="product-7">
+            <span class="condition-badge badge-usable">Usable</span>
+            <div class="card-image">
+              <img src="images/Marsail Ergonomic Mesh Office Chair.jpeg" alt="Ergonomic Mesh Study Chair" class="product-image">
+            </div>
+
+            <div class="card-body">
+              <span class="card-category-tag">Dorm Living</span>
+              <h2 class="product-title">High-Back Breathable Mesh Study Chair</h2>
+              <div class="product-price">
+                <span class="currency-label">KES</span> 4,500
+              </div>
+              <p class="product-description">
+                Pneumatic gas cylinder height adjustment with tilt lock and lumbar curvature. Smooth 360-degree casters. Slight cosmetic fabric fray on left armrest.
+              </p>
+            </div>
+
+            <div class="card-footer-split">
+              <div class="student-info-block">
+                <div class="student-name-row">
+                  <span class="verified-dot" title="Verified University Student" aria-hidden="true"></span>
+                  <span>John Mwangi</span>
+                </div>
+                <div class="student-meta-item">
+                  <span class="meta-icon" aria-hidden="true">&#128205;</span>
+                  <span>Off-Campus Hostels (Gate B)</span>
+                </div>
+                <div class="student-meta-item">
+                  <span class="meta-icon" aria-hidden="true">&#9742;</span>
+                  <a href="tel:+254778901234" class="student-phone-link">+254 778 901 234</a>
+                </div>
+              </div>
+
+              <div class="card-action-block">
+                <a href="#product-7" class="btn btn-outline" id="btn-view-7">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- --------------------------------------------------------------
+               Product Card 8: Countertop Microwave Oven
+               -------------------------------------------------------------- -->
+          <article class="product-card" id="product-8">
+            <span class="condition-badge badge-usable">Usable</span>
+            <div class="card-image">
+              <img src="images/microwave.jpeg" alt="Solstar 20L 700W Countertop Microwave" class="product-image">
+            </div>
+
+            <div class="card-body">
+              <span class="card-category-tag">Dorm Cooking</span>
+              <h2 class="product-title">Solstar 20L 700W Countertop Microwave</h2>
+              <div class="product-price">
+                <span class="currency-label">KES</span> 4,200
+              </div>
+              <p class="product-description">
+                5 variable cooking power levels and 30-minute mechanical timer dial. Glass turntable runs smoothly. Clean interior; ideal for quick meal prep.
+              </p>
+            </div>
+
+            <div class="card-footer-split">
+              <div class="student-info-block">
+                <div class="student-name-row">
+                  <span class="verified-dot" title="Verified University Student" aria-hidden="true"></span>
+                  <span>Linda Kemunto</span>
+                </div>
+                <div class="student-meta-item">
+                  <span class="meta-icon" aria-hidden="true">&#128205;</span>
+                  <span>Postgraduate Hall 1</span>
+                </div>
+                <div class="student-meta-item">
+                  <span class="meta-icon" aria-hidden="true">&#9742;</span>
+                  <a href="tel:+254789012345" class="student-phone-link">+254 789 012 345</a>
+                </div>
+              </div>
+
+              <div class="card-action-block">
+                <a href="#product-8" class="btn btn-outline" id="btn-view-8">View Details</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       Global Footer
+       ====================================================================== -->
+  <footer class="global-footer" id="global-footer">
+    <div class="container">
+      
+      <div class="footer-grid">
+        <!-- Brand Information Column -->
+        <div class="footer-col footer-brand-col">
+          <a href="index.html" class="brand-logo footer-brand-logo" id="footer-brand-logo">
+            <span class="brand-icon-emblem" aria-hidden="true">C</span>
+            <span>Campus<span class="brand-accent">Market</span></span>
+          </a>
+          <p>
+            The dedicated peer-to-peer marketplace engineered for local university communities. Facilitating safe, sustainable exchanges between students and staff.
+          </p>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-nav-list">
+            <li><a href="index.html" class="footer-nav-link">Home</a></li>
+            <li><a href="catalog.html" class="footer-nav-link">Full Catalog</a></li>
+            <li><a href="catalog.html#textbooks" class="footer-nav-link">Textbooks</a></li>
+            <li><a href="catalog.html#dorm" class="footer-nav-link">Dorm Gear</a></li>
+          </ul>
+        </div>
+
+        <!-- Campus Safety Guidelines -->
+        <div class="footer-col">
+          <h4>Trust &amp; Safety</h4>
+          <ul class="footer-nav-list">
+            <li><a href="index.html#features" class="footer-nav-link">Safe Pickup Points</a></li>
+            <li><a href="index.html#features" class="footer-nav-link">Honor Code</a></li>
+            <li><a href="index.html#features" class="footer-nav-link">Scam Prevention</a></li>
+            <li><a href="index.html#features" class="footer-nav-link">Dispute Resolution</a></li>
+          </ul>
+        </div>
+
+        <!-- Academic Community Support -->
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul class="footer-nav-list">
+            <li><a href="catalog.html" class="footer-nav-link">Student Union Desk</a></li>
+            <li><a href="catalog.html" class="footer-nav-link">Campus Ambassadors</a></li>
+            <li><a href="catalog.html" class="footer-nav-link">Sustainability Club</a></li>
+            <li><a href="catalog.html" class="footer-nav-link">Contact Admin</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Copyright & Standards -->
+      <div class="footer-bottom-bar">
+        <p class="copyright-text">&copy; 2026 CampusMarket. All rights reserved. Built for university peer-to-peer commerce.</p>
+        <ul class="footer-legal-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Campus Guidelines</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
