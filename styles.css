@@ -1,0 +1,766 @@
+:root {
+  /* Brand Color Palette */
+  --color-primary: #4F46E5;        /* Tech Marketplace Indigo */
+  --color-primary-hover: #4338CA;  /* Dark Indigo */
+  --color-primary-light: #EEF2FF;  /* Subtle Indigo Tint */
+  --color-primary-border: #C7D2FE; /* Indigo Accent Border */
+
+  /* Neutral Surface & Background System */
+  --color-bg: #F9FAFB;             /* Soft Neutral Page Background */
+  --color-surface: #FFFFFF;        /* Pure White Card/Header Surface */
+  --color-surface-subtle: #F3F4F6; /* Light Contrast Background */
+  --color-border: #E5E7EB;         /* Standard Subtle Divider */
+  --color-border-dark: #D1D5DB;    /* Interactive Border */
+
+  /* High-Contrast Typography */
+  --color-text-primary: #111827;   /* Deep Slate/Gray for Headings & Price */
+  --color-text-secondary: #4B5563; /* Readable Slate for Paragraphs */
+  --color-text-muted: #6B7280;     /* Muted Slate for Meta Details & Labels */
+  --color-text-inverse: #FFFFFF;   /* White text on Primary */
+
+  /* Semantic Condition Badges */
+  --badge-like-new-bg: #DEF7EC;
+  --badge-like-new-text: #03543F;
+  --badge-good-bg: #E1EFFE;
+  --badge-good-text: #1E429F;
+  --badge-usable-bg: #FEF3C7;
+  --badge-usable-text: #92400E;
+
+  /* Typography Stack */
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Box Shadows for Micro-Elevation */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+  --shadow-card-hover: 0 16px 24px -4px rgba(79, 70, 229, 0.12), 0 6px 8px -4px rgba(0, 0, 0, 0.04);
+
+  /* Border Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Base Typography
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%; /* 16px base */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Accessibility: Skip to Content */
+.skip-link {
+  position: absolute;
+  top: -120px;
+  left: 1.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  z-index: 9999;
+  text-decoration: none;
+  box-shadow: var(--shadow-lg);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 1.25rem;
+  outline: 3px solid #000000;
+}
+
+/* Base Headings & Links */
+h1, h2, h3, h4 {
+  color: var(--color-text-primary);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* Global Content Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. Global Sticky Navigation Bar
+   -------------------------------------------------------------------------- */
+.global-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.5rem;
+  gap: 1.5rem;
+}
+
+/* Brand Identity */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  letter-spacing: -0.025em;
+  text-decoration: none;
+}
+
+.brand-icon-emblem {
+  width: 2.25rem;
+  height: 2.25rem;
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 800;
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.3);
+}
+
+.brand-accent {
+  color: var(--color-primary);
+}
+
+.campus-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  margin-left: 0.25rem;
+  letter-spacing: 0.02em;
+}
+
+/* Primary Navigation Links */
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+}
+
+.nav-link {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  padding: 0.5rem 0.25rem;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+.nav-link.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-pill);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. Buttons & Interactive Controls
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.65rem 1.35rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--transition-base);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  color: var(--color-text-inverse);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.35);
+}
+
+.btn-secondary {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-surface-subtle);
+  border-color: var(--color-border-dark);
+  color: var(--color-text-primary);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  padding: 0.45rem 0.95rem;
+  font-size: 0.875rem;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.25);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   5. Home Page: Hero Banner & Pure CSS Slider Showcase
+   -------------------------------------------------------------------------- */
+.hero,
+.hero-section {
+  min-height: calc(100vh - 4.5rem);
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 100%);
+  padding: 3.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero-container {
+  display: flex;
+  align-items: flex-start; /* Top-align content leaving open space below CTAs */
+  justify-content: space-between;
+  gap: 3rem;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Left Column: Catchphrase, Messaging & Actions (40% width, Top-Aligned)
+   -------------------------------------------------------------------------- */
+.hero-content {
+  flex: 0 0 40%;
+  max-width: 40%;
+  align-self: flex-start;
+  padding-top: 0.5rem;
+}
+
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary-border);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.825rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  letter-spacing: -0.03em;
+  margin-bottom: 1.15rem;
+  line-height: 1.18;
+  color: var(--color-text-primary);
+}
+
+.highlight {
+  color: var(--color-primary);
+  position: relative;
+  display: inline;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin-bottom: 2rem;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 2.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Right Column: Product Slider Showcase (60% width)
+   -------------------------------------------------------------------------- */
+.hero-showcase {
+  flex: 0 0 calc(60% - 3rem);
+  flex: 0 0 57%;
+  max-width: 57%;
+  min-width: 0; /* Defensive CSS: prevent flex children from bursting container */
+}
+
+.slider-wrapper {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 1.25rem 1.25rem 1rem;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+/* Slider Top Status Header */
+.slider-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.slider-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10B981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+}
+
+.slider-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.775rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.pause-symbol {
+  font-size: 0.65rem;
+  letter-spacing: -1px;
+}
+
+/* Slider Viewport (Hides Overflow) */
+.slider-viewport {
+  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+  background-color: #F8FAFC;
+  border: 1px solid var(--color-border);
+}
+
+/* Sliding Track (500% width for 5 slides) */
+.slider-track {
+  display: flex;
+  width: 500%;
+  animation: slideSequence 20s infinite ease-in-out;
+  will-change: transform;
+}
+
+/* Hover to Freeze Animation */
+.slider-viewport:hover .slider-track,
+.slider-track:hover,
+.slider-wrapper:hover .slider-track,
+.hero-showcase:hover .slider-track {
+  animation-play-state: paused;
+}
+
+/* Individual Slide Card (20% of 500% = 100% of Viewport) */
+.slide {
+  width: 20%;
+  flex: 0 0 20%;
+  box-sizing: border-box;
+  padding: 1.25rem 1.25rem 1rem;
+}
+
+/* Vertical Stack Card Structure */
+.slide-inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Top Portion (Visual): Large product image / visual placeholder container */
+.slide-image-container,
+.slide-media {
+  width: 100%;
+  height: 185px;
+  background: linear-gradient(145deg, #EEF2FF 0%, #E0E7FF 100%);
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+  position: relative;
+  border: 1px solid var(--color-primary-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.featured-campus-badge {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.65rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+}
+
+.slide-graphic-box {
+  margin: 0.75rem 0 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 4px 6px rgba(79, 70, 229, 0.15));
+}
+
+.slide-seller-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--color-border);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.725rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  white-space: nowrap;
+  margin-top: auto;
+}
+
+.seller-avatar {
+  width: 18px;
+  height: 18px;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  font-size: 0.6rem;
+  font-weight: 700;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bottom Portion (Content): Product details stacked cleanly beneath image */
+.slide-content,
+.slide-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.slide-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.35rem;
+}
+
+.slide-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+  margin-bottom: 0.35rem;
+}
+
+.slide-price-tag {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  margin-bottom: 0.45rem;
+}
+
+.slide-price-tag .price-currency {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.slide-price-tag .price-amount {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+
+.slide-price-tag .price-original {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+  margin-left: 0.35rem;
+}
+
+.slide-description {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.85rem;
+}
+
+.slide-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.btn-sm {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.825rem;
+}
+
+.slide-pickup-note {
+  font-size: 0.775rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* Synchronized Slide Indicator Dots */
+.slider-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+
+.indicator-dot {
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-border-dark);
+  transition: all 0.3s ease;
+}
+
+.indicator-dot.dot-1 { animation: dotAnim1 20s infinite ease-in-out; }
+.indicator-dot.dot-2 { animation: dotAnim2 20s infinite ease-in-out; }
+.indicator-dot.dot-3 { animation: dotAnim3 20s infinite ease-in-out; }
+.indicator-dot.dot-4 { animation: dotAnim4 20s infinite ease-in-out; }
+.indicator-dot.dot-5 { animation: dotAnim5 20s infinite ease-in-out; }
+
+.slider-wrapper:hover .indicator-dot,
+.hero-showcase:hover .indicator-dot {
+  animation-play-state: paused;
+}
+
+/* --------------------------------------------------------------------------
+   Pure CSS Slider Keyframes (5 Slides with Dwell Time & Smooth Swipes)
+   -------------------------------------------------------------------------- */
+@keyframes slideSequence {
+  0% { transform: translateX(0%); }
+  16% { transform: translateX(0%); }
+
+  20% { transform: translateX(-20%); }
+  36% { transform: translateX(-20%); }
+
+  40% { transform: translateX(-40%); }
+  56% { transform: translateX(-40%); }
+
+  60% { transform: translateX(-60%); }
+  76% { transform: translateX(-60%); }
+
+  80% { transform: translateX(-80%); }
+  96% { transform: translateX(-80%); }
+
+  100% { transform: translateX(0%); }
+}
+
+@keyframes dotAnim1 {
+  0%, 16% { width: 24px; background-color: var(--color-primary); }
+  20%, 100% { width: 8px; background-color: var(--color-border-dark); }
+}
+
+@keyframes dotAnim2 {
+  0%, 16% { width: 8px; background-color: var(--color-border-dark); }
+  20%, 36% { width: 24px; background-color: var(--color-primary); }
+  40%, 100% { width: 8px; background-color: var(--color-border-dark); }
+}
+
+@keyframes dotAnim3 {
+  0%, 36% { width: 8px; background-color: var(--color-border-dark); }
+  40%, 56% { width: 24px; background-color: var(--color-primary); }
+  60%, 100% { width: 8px; background-color: var(--color-border-dark); }
+}
+
+@keyframes dotAnim4 {
+  0%, 56% { width: 8px; background-color: var(--color-border-dark); }
+  60%, 76% { width: 24px; background-color: var(--color-primary); }
+  80%, 100% { width: 8px; background-color: var(--color-border-dark); }
+}
+
+@keyframes dotAnim5 {
+  0%, 76% { width: 8px; background-color: var(--color-border-dark); }
+  80%, 96% { width: 24px; background-color: var(--color-primary); }
+  100% { width: 8px; background-color: var(--color-border-dark); }
+}
+
+/* --------------------------------------------------------------------------
+   6. Home Page: 3-Column Features Section
+   -------------------------------------------------------------------------- */
+.features-section {
+  padding: 5rem 0;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem;
+}
+
+.section-header h2 {
+  font-size: 2.25rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.section-header p {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.feature-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary-border);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.feature-icon-bubble {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}

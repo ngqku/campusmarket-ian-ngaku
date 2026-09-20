@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusMarket - University Peer-to-Peer Marketplace</title>
+  <meta name="description" content="CampusMarket is a safe, peer-to-peer campus marketplace for university students to buy, sell, and trade textbooks, dorm equipment, electronics, and supplies locally.">
+  <meta property="og:title" content="CampusMarket - University Peer-to-Peer Marketplace">
+  <meta property="og:description" content="Buy and sell textbooks, dorm equipment, and academic supplies directly with verified students on campus.">
+  <meta property="og:type" content="website">
+  
+  <!-- Central Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Accessible Skip to Main Content Link -->
+  <a href="#main-content" class="skip-link" id="skip-to-content">Skip to main content</a>
+
+  <!-- ======================================================================
+       Global Header & Sticky Navigation
+       ====================================================================== -->
+  <header class="global-header" id="global-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <!-- Brand Identity Logo -->
+        <a href="index.html" class="brand-logo" id="brand-logo" aria-label="CampusMarket Home">
+          <span class="brand-icon-emblem" aria-hidden="true">C</span>
+          <span>Campus<span class="brand-accent">Market</span></span>
+          <span class="campus-tag">University Hub</span>
+        </a>
+
+        <!-- Primary Navigation Links -->
+        <nav class="main-nav" id="main-nav" aria-label="Primary Navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link active" id="nav-link-home" aria-current="page">Home</a></li>
+            <li><a href="catalog.html" class="nav-link" id="nav-link-catalog">Browse Catalog</a></li>
+            <li><a href="#features" class="nav-link" id="nav-link-why">Why Choose Campus Market</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Action CTA -->
+        <div class="nav-actions">
+          <a href="catalog.html#upload" class="btn btn-primary" id="nav-btn-upload">Upload Items</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       Main Content Area
+       ====================================================================== -->
+  <main id="main-content">
+
+    <!-- Hero Banner Section (Near Full-Screen Height with Top-Aligned Left Content and Pure CSS Slider on Right) -->
+    <section class="hero-section hero" id="hero-section" aria-labelledby="hero-heading">
+      <div class="container hero-container">
+        
+        <!-- Left Column: Catchphrase & Messaging (~40% width, Top-Aligned) -->
+        <div class="hero-content" id="hero-content">
+          <div class="hero-pill-badge" id="hero-badge">
+            100% Student-to-Student Marketplace
+          </div>
+          
+          <h1 class="hero-title" id="hero-heading">
+            Buy, Sell &amp; Swap <br><span class="highlight">Right Here on Campus</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Trade textbooks, dorm essentials, and tech stuff directly with fellow students safely and quickly.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="catalog.html" class="btn btn-primary" id="hero-cta-browse">
+              Explore Catalog
+            </a>
+            <a href="catalog.html#upload" class="btn btn-secondary" id="hero-cta-sell">
+              Sell an Item
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Animated Product Slider Showcase (~60% width) -->
+        <div class="hero-showcase" id="hero-showcase">
+          <div class="slider-wrapper">
+            
+            <!-- Slider Top Utility Bar -->
+            <div class="slider-top-bar">
+              <div class="slider-status-pill">
+                <span class="live-dot" aria-hidden="true"></span>
+                <span>Live Student Listings (5 Active)</span>
+              </div>
+              <div class="slider-hint">
+                <span class="pause-symbol" aria-hidden="true">&#10074;&#10074;</span>
+                <span>Hover to pause</span>
+              </div>
+            </div>
+
+            <!-- Viewport with hidden overflow -->
+            <div class="slider-viewport" id="hero-slider-viewport">
+              <div class="slider-track" id="hero-slider-track">
+
+                <!-- Slide 1: Scientific Calculator FX-991EX (Tech) -->
+                <article class="slide" id="slide-1" aria-label="Slide 1 of 5: Scientific Calculator FX-991EX">
+                  <div class="slide-inner">
+                    <!-- Top Portion: Visual Container -->
+                    <div class="slide-image-container">
+                      <span class="featured-campus-badge">Featured on Campus</span>
+                      <div class="slide-graphic-box">
+                        <svg width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                          <line x1="8" y1="6" x2="16" y2="6"></line>
+                          <line x1="16" y1="14" x2="16" y2="18"></line>
+                          <path d="M16 10h.01"></path>
+                          <path d="M12 10h.01"></path>
+                          <path d="M8 10h.01"></path>
+                          <path d="M12 14h.01"></path>
+                          <path d="M8 14h.01"></path>
+                          <path d="M12 18h.01"></path>
+                          <path d="M8 18h.01"></path>
+                        </svg>
+                      </div>
+                      <div class="slide-seller-pill">
+                        <span class="seller-avatar" aria-hidden="true">BK</span>
+                        <span>Brian K. • Engineering Wing A</span>
+                      </div>
+                    </div>
+
+                    <!-- Bottom Portion: Product Details Stack -->
+                    <div class="slide-content">
+                      <div class="slide-meta-row">
+                        <span class="card-category-tag">Tech</span>
+                        <span class="condition-badge badge-like-new">Like New</span>
+                      </div>
+                      <h3 class="slide-title">Scientific Calculator FX-991EX</h3>
+                      <div class="slide-price-tag">
+                        <span class="price-currency">KES</span>
+                        <span class="price-amount">2,200</span>
+                        <span class="price-original">KES 3,500 new</span>
+                      </div>
+                      <p class="slide-description">
+                        ClassWiz display with 552 functions, matrix solver, and QR code support. Permitted for university exams.
+                      </p>
+                      <div class="slide-actions">
+                        <a href="catalog.html#product-3" class="btn btn-primary btn-sm">View in Catalog &rarr;</a>
+                        <span class="slide-pickup-note">&#128205; Engineering Quad</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Slide 2: Calculus: Early Transcendentals (Textbook) -->
+                <article class="slide" id="slide-2" aria-label="Slide 2 of 5: Calculus Early Transcendentals">
+                  <div class="slide-inner">
+                    <!-- Top Portion: Visual Container -->
+                    <div class="slide-image-container">
+                      <span class="featured-campus-badge">Featured on Campus</span>
+                      <div class="slide-graphic-box">
+                        <svg width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
+                          <path d="M6 6h10"></path>
+                          <path d="M6 10h10"></path>
+                          <path d="M12 14c-1 0-2 .8-2 2s1 2 2 2 2 .8 2 2-1 2-2 2"></path>
+                        </svg>
+                      </div>
+                      <div class="slide-seller-pill">
+                        <span class="seller-avatar" aria-hidden="true">AW</span>
+                        <span>Amina W. • Main Library Quad</span>
+                      </div>
+                    </div>
+
+                    <!-- Bottom Portion: Product Details Stack -->
+                    <div class="slide-content">
+                      <div class="slide-meta-row">
+                        <span class="card-category-tag">Textbook</span>
+                        <span class="condition-badge badge-like-new">Like New</span>
+                      </div>
+                      <h3 class="slide-title">Calculus: Early Transcendentals</h3>
+                      <div class="slide-price-tag">
+                        <span class="price-currency">KES</span>
+                        <span class="price-amount">1,500</span>
+                        <span class="price-original">KES 3,800 bookstore</span>
+                      </div>
+                      <p class="slide-description">
+                        James Stewart 9th Edition hardcover. Pristine condition with crisp, clean unhighlighted pages.
+                      </p>
+                      <div class="slide-actions">
+                        <a href="catalog.html#product-1" class="btn btn-primary btn-sm">View in Catalog &rarr;</a>
+                        <span class="slide-pickup-note">&#128205; Library 2nd Floor</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Slide 3: Mini Fridge / Dorm Kettle (Dorm Gear) -->
+                <article class="slide" id="slide-3" aria-label="Slide 3 of 5: Mini Fridge and Dorm Kettle">
+                  <div class="slide-inner">
+                    <!-- Top Portion: Visual Container -->
+                    <div class="slide-image-container">
+                      <span class="featured-campus-badge">Featured on Campus</span>
+                      <div class="slide-graphic-box">
+                        <svg width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M5 2h14a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"></path>
+                          <line x1="3" y1="10" x2="21" y2="10"></line>
+                          <line x1="7" y1="6" x2="7" y2="7"></line>
+                          <line x1="7" y1="14" x2="7" y2="16"></line>
+                        </svg>
+                      </div>
+                      <div class="slide-seller-pill">
+                        <span class="seller-avatar" aria-hidden="true">DO</span>
+                        <span>David O. • Hall 4 Dorms</span>
+                      </div>
+                    </div>
+
+                    <!-- Bottom Portion: Product Details Stack -->
+                    <div class="slide-content">
+                      <div class="slide-meta-row">
+                        <span class="card-category-tag">Dorm Gear</span>
+                        <span class="condition-badge badge-good">Good</span>
+                      </div>
+                      <h3 class="slide-title">Mini Fridge / Dorm Kettle</h3>
+                      <div class="slide-price-tag">
+                        <span class="price-currency">KES</span>
+                        <span class="price-amount">3,500</span>
+                        <span class="price-original">KES 6,200 new</span>
+                      </div>
+                      <p class="slide-description">
+                        Fast-boil 1.8L auto-shutoff electric kettle and hostel cooler storage essentials. Fully tested.
+                      </p>
+                      <div class="slide-actions">
+                        <a href="catalog.html#product-2" class="btn btn-primary btn-sm">View in Catalog &rarr;</a>
+                        <span class="slide-pickup-note">&#128205; Hall 4 Common Room</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Slide 4: TaoTronics LED Study Desk Lamp (Dorm Gear) -->
+                <article class="slide" id="slide-4" aria-label="Slide 4 of 5: TaoTronics LED Study Desk Lamp">
+                  <div class="slide-inner">
+                    <!-- Top Portion: Visual Container -->
+                    <div class="slide-image-container">
+                      <span class="featured-campus-badge">Featured on Campus</span>
+                      <div class="slide-graphic-box">
+                        <svg width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M12 2v6"></path>
+                          <path d="M9 8h6l2 4H7l2-4z"></path>
+                          <path d="M12 12v6"></path>
+                          <path d="M8 22h8"></path>
+                          <line x1="12" y1="18" x2="12" y2="22"></line>
+                          <line x1="5" y1="12" x2="3" y2="13"></line>
+                          <line x1="19" y1="12" x2="21" y2="13"></line>
+                        </svg>
+                      </div>
+                      <div class="slide-seller-pill">
+                        <span class="seller-avatar" aria-hidden="true">FC</span>
+                        <span>Faith C. • Hall 2 East Wing</span>
+                      </div>
+                    </div>
+
+                    <!-- Bottom Portion: Product Details Stack -->
+                    <div class="slide-content">
+                      <div class="slide-meta-row">
+                        <span class="card-category-tag">Dorm Gear</span>
+                        <span class="condition-badge badge-like-new">Like New</span>
+                      </div>
+                      <h3 class="slide-title">TaoTronics LED Study Desk Lamp</h3>
+                      <div class="slide-price-tag">
+                        <span class="price-currency">KES</span>
+                        <span class="price-amount">1,850</span>
+                        <span class="price-original">KES 3,200 new</span>
+                      </div>
+                      <p class="slide-description">
+                        Flicker-free desk lamp with 5 color temperatures, multi-level dimming, and built-in USB charging port.
+                      </p>
+                      <div class="slide-actions">
+                        <a href="catalog.html#product-4" class="btn btn-primary btn-sm">View in Catalog &rarr;</a>
+                        <span class="slide-pickup-note">&#128205; Hall 2 Reception</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Slide 5: Sony WH-CH720N Noise-Cancelling Headphones (Tech) -->
+                <article class="slide" id="slide-5" aria-label="Slide 5 of 5: Sony WH-CH720N Headphones">
+                  <div class="slide-inner">
+                    <!-- Top Portion: Visual Container -->
+                    <div class="slide-image-container">
+                      <span class="featured-campus-badge">Featured on Campus</span>
+                      <div class="slide-graphic-box">
+                        <svg width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                          <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+                        </svg>
+                      </div>
+                      <div class="slide-seller-pill">
+                        <span class="seller-avatar" aria-hidden="true">SA</span>
+                        <span>Stacy A. • Postgraduate Wing</span>
+                      </div>
+                    </div>
+
+                    <!-- Bottom Portion: Product Details Stack -->
+                    <div class="slide-content">
+                      <div class="slide-meta-row">
+                        <span class="card-category-tag">Tech</span>
+                        <span class="condition-badge badge-good">Good</span>
+                      </div>
+                      <h3 class="slide-title">Sony WH-CH720N Headphones</h3>
+                      <div class="slide-price-tag">
+                        <span class="price-currency">KES</span>
+                        <span class="price-amount">7,900</span>
+                        <span class="price-original">KES 14,500 new</span>
+                      </div>
+                      <p class="slide-description">
+                        Dual noise-sensor active cancellation with 35-hour battery life. Ideal for focused revision in campus libraries.
+                      </p>
+                      <div class="slide-actions">
+                        <a href="catalog.html#product-6" class="btn btn-primary btn-sm">View in Catalog &rarr;</a>
+                        <span class="slide-pickup-note">&#128205; Postgraduate Hall</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+              </div>
+            </div>
+
+            <!-- Pure CSS Visual Slide Indicators (5 Dots Synchronized) -->
+            <div class="slider-indicators" aria-hidden="true">
+              <span class="indicator-dot dot-1" title="Slide 1"></span>
+              <span class="indicator-dot dot-2" title="Slide 2"></span>
+              <span class="indicator-dot dot-3" title="Slide 3"></span>
+              <span class="indicator-dot dot-4" title="Slide 4"></span>
+              <span class="indicator-dot dot-5" title="Slide 5"></span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Features & Benefits Section (3-Column Architecture) -->
+    <section class="features-section" id="features" aria-labelledby="features-heading">
+      <div class="container">
+        
+        <header class="section-header">
+          <h2 id="features-heading">Why Choose Campus Market</h2>
+          <p>Traditional marketplaces are plagued by shipping hassles, payment scams, and anonymous sellers. CampusMarket keeps transactions hyper-local and safe.</p>
+        </header>
+
+        <div class="features-grid">
+          
+          <!-- Feature 1: Verified University Network -->
+          <article class="feature-card" id="feature-verified">
+            <div class="feature-icon-bubble" aria-hidden="true">
+              <!-- Academic Verification Icon -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <h3>Verified Student Network</h3>
+            <p>
+              Trade with confidence. All sellers and buyers are fellow university students and staff with recognized campus email domains and designated residence halls.
+            </p>
+          </article>
+
+          <!-- Feature 2: Zero Shipping & Instant Pickup -->
+          <article class="feature-card" id="feature-shipping">
+            <div class="feature-icon-bubble" aria-hidden="true">
+              <!-- Location / Hand-off Icon -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <h3>Zero Shipping Fees</h3>
+            <p>
+              Never wait days for delivery or pay inflated courier charges. Arrange easy physical hand-offs at the university library, cafeteria, or dorm common rooms.
+            </p>
+          </article>
+
+          <!-- Feature 3: Affordable Academic Essentials -->
+          <article class="feature-card" id="feature-savings">
+            <div class="feature-icon-bubble" aria-hidden="true">
+              <!-- Savings / Eco Reuse Icon -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <h3>Budget-Friendly &amp; Circular</h3>
+            <p>
+              Senior students recoup costs by passing on required textbooks and dorm appliances to underclassmen, building a sustainable, budget-friendly campus circular economy.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       Global Footer
+       ====================================================================== -->
+  <footer class="global-footer" id="global-footer">
+    <div class="container">
+      
+      <div class="footer-grid">
+        <!-- Brand Information Column -->
+        <div class="footer-col footer-brand-col">
+          <a href="index.html" class="brand-logo footer-brand-logo" id="footer-brand-logo">
+            <span class="brand-icon-emblem" aria-hidden="true">C</span>
+            <span>Campus<span class="brand-accent">Market</span></span>
+          </a>
+          <p>
+            The dedicated peer-to-peer marketplace engineered for local university communities. Facilitating safe, sustainable exchanges between students and staff.
+          </p>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-nav-list">
+            <li><a href="index.html" class="footer-nav-link">Home</a></li>
+            <li><a href="catalog.html" class="footer-nav-link">Full Catalog</a></li>
+            <li><a href="catalog.html" class="footer-nav-link">Textbooks</a></li>
+            <li><a href="catalog.html" class="footer-nav-link">Dorm Gear</a></li>
+          </ul>
+        </div>
+
+        <!-- Campus Safety Guidelines -->
+        <div class="footer-col">
+          <h4>Trust &amp; Safety</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#features" class="footer-nav-link">Safe Pickup Points</a></li>
+            <li><a href="#features" class="footer-nav-link">Honor Code</a></li>
+            <li><a href="#features" class="footer-nav-link">Scam Prevention</a></li>
+            <li><a href="#features" class="footer-nav-link">Dispute Resolution</a></li>
+          </ul>
+        </div>
+
+        <!-- Academic Community Support -->
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul class="footer-nav-list">
+            <li><a href="catalog.html" class="footer-nav-link">Student Union Desk</a></li>
+            <li><a href="catalog.html" class="footer-nav-link">Campus Ambassadors</a></li>
+            <li><a href="catalog.html" class="footer-nav-link">Sustainability Club</a></li>
+            <li><a href="catalog.html" class="footer-nav-link">Contact Admin</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Copyright & Standards -->
+      <div class="footer-bottom-bar">
+        <p class="copyright-text">&copy; 2026 CampusMarket. All rights reserved. Built for university peer-to-peer commerce.</p>
+        <ul class="footer-legal-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Campus Guidelines</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
