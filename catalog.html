@@ -55,17 +55,25 @@
 
       <!-- Catalog Header & Category Pills -->
       <header class="catalog-header" id="catalog-header">
-        
-        <div class="catalog-search-wrapper" style="margin-top: 0rem; margin-bottom: 1.5rem;">
-          <input 
-            type="text" 
-            id="search-input" 
-            placeholder="Search textbooks, electronics, dorm gear..." 
-            onkeyup="filterProducts()" 
-            style="width: 100%; max-width: 500px; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem;"
-          >
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+          <div class="catalog-search-wrapper" style="margin-top: 0rem; margin-bottom: 1.5rem;">
+            <input 
+              type="text" 
+              id="search-input" 
+              placeholder="Search textbooks, electronics, dorm gear..." 
+              onkeyup="filterProducts()" 
+              style="width: 100%; max-width: 600px; padding: 0.75rem 1rem; border: 1px solid #4F46E5; --holder-color: black; border-radius: 8px; font-size: 1rem;"
+            >
+          </div>
+          <div class="nav-actions">
+            <button class="btn btn-secondary cart-nav-btn" id="cart-nav-btn" onclick="toggleCartDrawer()">
+              🛒 <span class="cart-label">Cart</span> 
+              (<span id="global-cart-count">0</span>) 
+              — <span class="currency-label">KES</span> <span id="global-cart-total">0</span>
+            </button>
+
+          </div>
         </div>
-          
         <!-- Static Category Pill Navigation -->
         <nav class="category-filters-nav" aria-label="Product categories">
             <ul class="category-filter-list" id="category-filter-pills">
@@ -107,7 +115,7 @@
 
             <!-- Card Body Details -->
             <div class="card-body">
-              <span class="card-category-tag">Mathematics</span>
+              <span class="card-category-tag">books</span>
               <h2 class="product-title">Calculus: Early Transcendentals (9th Ed.)</h2>
               <div class="product-price">
                 <span class="currency-label">KES</span> 3,200
@@ -148,7 +156,7 @@
           <!-- --------------------------------------------------------------
                Product Card 2: Mini-Fridge
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-2" data-category="dorm-gear">
+          <article class="product-card" id="product-2" data-category="dorm">
             <span class="condition-badge badge-good">Good</span>
             <div class="card-image">
                 <img src="images/Mini Fridge.jpeg" alt="Haier 90L Compact Dorm Mini-Fridge" class="product-image">
@@ -156,7 +164,7 @@
             </div>
 
             <div class="card-body">
-              <span class="card-category-tag">Dorm Gear</span>
+              <span class="card-category-tag">Dorm Furnishings</span>
               <h2 class="product-title">Haier 90L Compact Dorm Mini-Fridge</h2>
               <div class="product-price">
                 <span class="currency-label">KES</span> 14,500
@@ -196,17 +204,17 @@
           <!-- --------------------------------------------------------------
                Product Card 3: Graphing Calculator
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-3" data-category="engineering-stem">
+          <article class="product-card" id="product-3" data-category="electronics">
             <span class="condition-badge badge-like-new">Like New</span>
             <div class="card-image">
                 <img src="images/Calculator.jpeg" alt="TI-84 Plus CE Color Graphing Calculator" class="product-image">
             </div>
 
             <div class="card-body">
-              <span class="card-category-tag">Engineering / STEM</span>
+              <span class="card-category-tag">Electronics</span>
               <h2 class="product-title">TI-84 Plus CE Color Graphing Calculator</h2>
               <div class="product-price">
-                <span class="currency-label">KES</span> 6,800
+                <span class="currency-label">KES</span> 3,500
               </div>
               <p class="product-description">
                 Vibrant backlit color screen with rechargeable lithium battery. Comes with protective slide-on hard case and micro-USB charging cable.
@@ -243,17 +251,17 @@
           <!-- --------------------------------------------------------------
                Product Card 4: LED Study Desk Lamp
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-4" data-category="dorm-gear">
+          <article class="product-card" id="product-4" data-category="electronics">
             <span class="condition-badge badge-like-new">Like New</span>
             <div class="card-image">
                 <img src="images/study Lamp.jpeg" alt="TaoTronics Eye-Caring LED Study Desk Lamp" class="product-image">
             </div>
 
             <div class="card-body">
-              <span class="card-category-tag">Lighting</span>
+              <span class="card-category-tag">Electronics</span>
               <h2 class="product-title">TaoTronics Eye-Caring LED Study Desk Lamp</h2>
               <div class="product-price">
-                <span class="currency-label">KES</span> 1,850
+                <span class="currency-label">KES</span> 3,500
               </div>
               <p class="product-description">
                 Flicker-free warm and cool illumination with 5 color temperatures and 7 dimming levels. Features built-in 5V USB output for night phone charging.
@@ -291,14 +299,14 @@
           <!-- --------------------------------------------------------------
                Product Card 5: Molecular Model Kit
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-5" data-category="science">
+          <article class="product-card" id="product-5" data-category="lab">
             <span class="condition-badge badge-good">Good</span>
             <div class="card-image">
                 <img src="images/Organic Molecule Building Sets.jpeg" alt="Organic Chemistry Molecular Model Set" class="product-image">
             </div>
 
             <div class="card-body">
-              <span class="card-category-tag">Science</span>
+              <span class="card-category-tag">Lab Equipment</span>
               <h2 class="product-title">Organic Chemistry Molecular Model Set</h2>
               <div class="product-price">
                 <span class="currency-label">KES</span> 2,400
@@ -338,17 +346,17 @@
           <!-- --------------------------------------------------------------
                Product Card 6: Noise Cancelling Headphones
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-6" data-category="audio-tech">
+          <article class="product-card" id="product-6" data-category="electronics">
             <span class="condition-badge badge-good">Good</span>
             <div class="card-image">
                 <img src="images/Headphones .jpeg" alt="Sony WH-CH720N Noise-Cancelling Headphones" class="product-image">
             </div>
 
             <div class="card-body">
-              <span class="card-category-tag">Audio / Tech</span>
+              <span class="card-category-tag">Electronics</span>
               <h2 class="product-title">Sony WH-CH720N Noise-Cancelling Headphones</h2>
               <div class="product-price">
-                <span class="currency-label">KES</span> 7,900
+                <span class="currency-label">KES</span> 5,000
               </div>
               <p class="product-description">
                 Dual noise sensor technology with integrated V1 processor. Up to 35-hour battery life. Lightweight ear cushions; ideal for silent library revision.
@@ -385,14 +393,14 @@
           <!-- --------------------------------------------------------------
                Product Card 7: Ergonomic Mesh Study Chair
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-7" data-category="dorm-gear">
+          <article class="product-card" id="product-7" data-category="dorm">
             <span class="condition-badge badge-usable">Usable</span>
             <div class="card-image">
               <img src="images/Marsail Ergonomic Mesh Office Chair.jpeg" alt="Ergonomic Mesh Study Chair" class="product-image">
             </div>
 
             <div class="card-body">
-              <span class="card-category-tag">Dorm Living</span>
+              <span class="card-category-tag">Dorm Furnishings</span>
               <h2 class="product-title">High-Back Breathable Mesh Study Chair</h2>
               <div class="product-price">
                 <span class="currency-label">KES</span> 4,500
@@ -432,14 +440,14 @@
           <!-- --------------------------------------------------------------
                Product Card 8: Countertop Microwave Oven
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-8" data-category="dorm-cooking">
+          <article class="product-card" id="product-8" data-category="dorm">
             <span class="condition-badge badge-usable">Usable</span>
             <div class="card-image">
               <img src="images/microwave.jpeg" alt="Solstar 20L 700W Countertop Microwave" class="product-image">
             </div>
 
             <div class="card-body">
-              <span class="card-category-tag">Dorm Cooking</span>
+              <span class="card-category-tag">Dorm Furnishings</span>
               <h2 class="product-title">Solstar 20L 700W Countertop Microwave</h2>
               <div class="product-price">
                 <span class="currency-label">KES</span> 4,200
@@ -481,6 +489,31 @@
 
     </div>
   </main>
+  <!-- ======================================================================
+      Persistent Slide-out Cart Drawer & Overlay
+      ====================================================================== -->
+  <div class="cart-overlay" id="cart-overlay" onclick="toggleCartDrawer()"></div>
+
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Cart">
+    <div class="cart-drawer-header">
+      <h3>Your Selected Items</h3>
+      <button class="cart-close-btn" onclick="toggleCartDrawer()" aria-label="Close cart">&times;</button>
+    </div>
+
+    <div class="cart-drawer-body" id="cart-items-list">
+      <p class="empty-cart-msg">Your cart is currently empty.</p>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-row">
+        <span>Total Amount:</span>
+        <strong>KES <span id="drawer-cart-total">0</span></strong>
+      </div>
+      <button class="btn btn-primary btn-checkout" onclick="alert('Proceeding to student seller hand-off!')">
+        Proceed to Hand-Off
+      </button>
+    </div>
+  </aside>
 
   <!-- ======================================================================
        Global Footer
