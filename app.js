@@ -208,3 +208,176 @@ function toggleCartDrawer() {
     overlay.classList.toggle('active');
   }
 }
+
+
+/**
+ * CampusMarket - Authentication & Form Validation (Week 3)
+ */
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  // 1. DOM Element Selection
+  const regForm = document.getElementById('registration-form');
+  const alertBox = document.getElementById('form-alert');
+
+  // Input Fields
+  const fullNameInput = document.getElementById('full-name');
+  const campusIdInput = document.getElementById('campus-id');
+  const phoneInput = document.getElementById('phone-number');
+  const emailInput = document.getElementById('student-email');
+  const fileInput = document.getElementById('student-id-card');
+  const idPreviewImg = document.getElementById('id-card-preview');
+  const passwordInput = document.getElementById('account-password');
+  const confirmPasswordInput = document.getElementById('confirm-password');
+
+  // Interactive UI Buttons
+  const togglePw1 = document.getElementById('toggle-pw-1');
+  const togglePw2 = document.getElementById('toggle-pw-2');
+
+
+  // 2. Interactive UI Element #1: Show/Hide Password Toggle
+  if (togglePw1 && passwordInput) {
+    togglePw1.addEventListener('click', function () {
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        togglePw1.textContent = 'Hide';
+      } else {
+        passwordInput.type = 'password';
+        togglePw1.textContent = 'Show';
+      }
+    });
+  }
+
+  if (togglePw2 && confirmPasswordInput) {
+    togglePw2.addEventListener('click', function () {
+      if (confirmPasswordInput.type === 'password') {
+        confirmPasswordInput.type = 'text';
+        togglePw2.textContent = 'Hide';
+      } else {
+        confirmPasswordInput.type = 'password';
+        togglePw2.textContent = 'Show';
+      }
+    });
+  }
+
+
+  // 3. Interactive UI Element #2: Live Student ID Image Preview
+  if (fileInput && idPreviewImg) {
+    fileInput.addEventListener('change', function (event) {
+      const selectedFile = event.target.files[0];
+
+      if (selectedFile) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          idPreviewImg.src = e.target.result;
+          idPreviewImg.style.display = 'block';
+        };
+        reader.readAsDataURL(selectedFile);
+      } else {
+        idPreviewImg.src = '';
+        idPreviewImg.style.display = 'none';
+      }
+    });
+  }
+
+
+  // ---------------------------------------------------------------------------
+  // 4. Form Submission & Validation Handler
+  // ---------------------------------------------------------------------------
+  if (regForm) {
+    regForm.addEventListener('submit', function (event) {
+      
+      // CRITICAL REQUIREMENT: Prevent form from reloading page on submit
+      event.preventDefault();
+
+      // Clear previous alert messages
+      hideAlert();
+
+     
+      const fullName = fullNameInput.value.trim();
+      const campusId = campusIdInput.value.trim();
+      const phone = phoneInput.value.trim();
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+      const confirmPassword = confirmPasswordInput.value;
+      const hasUploadedFile = fileInput.files.length > 0;
+
+
+      // CHECK 1: Ensuring no crucial fields are left empty
+      if (!fullName || !campusId || !phone || !email || !password || !confirmPassword) {
+        showAlert('Please fill in all required text fields before submitting.', 'error');
+        return;
+      }
+
+      if (!hasUploadedFile) {
+        showAlert('Please upload a clear image of your Student ID card for admin verification.', 'error');
+        return;
+      }
+
+      //CHECK 2: Ensuring phone number is valid (10 digits, numeric only)
+      const phoneRegex = /^\d{10}$/;
+      if (!phoneRegex.test(phone)) {
+        showAlert('Please enter a valid 10-digit phone number (numbers only).', 'error');
+        phoneInput.focus();
+        return;
+      }
+
+    
+      // CHECK 3: Validating standard email pattern (e.g. user@domain.com)
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showAlert('Please enter a valid campus email address (e.g., student@campus.edu).', 'error');
+        emailInput.focus();
+        return;
+      }
+
+      // CHECK 4: Enforcing a minimum length of 6 characters
+      if (password.length < 6) {
+        showAlert('Password must be at least 6 characters long.', 'error');
+        passwordInput.focus();
+        return;
+      }
+    
+      // CHECK 5: Password and Confirm Password fields must match exactly
+      if (password !== confirmPassword) {
+        showAlert('Passwords do not match. Please re-enter your password.', 'error');
+        confirmPasswordInput.focus();
+        return;
+      }
+
+    
+      // SUCCESS STATE: After all 5 validations pass
+      showAlert('Success! Your account registration and Student ID image have been submitted for admin verification.', 'success');
+
+      // Reset form after successful validation
+      regForm.reset();
+      if (idPreviewImg) idPreviewImg.style.display = 'none';
+
+    });
+  }
+
+  // Helper Functions: Feedback Messages
+  
+  function showAlert(message, type) {
+    if (!alertBox) return;
+
+    alertBox.textContent = message;
+    alertBox.className = 'alert-box'; // Reset classes
+
+    if (type === 'error') {
+      alertBox.classList.add('alert-error');
+    } else if (type === 'success') {
+      alertBox.classList.add('alert-success');
+    }
+
+    alertBox.style.display = 'block';
+  }
+
+  function hideAlert() {
+    if (alertBox) {
+      alertBox.style.display = 'none';
+      alertBox.textContent = '';
+    }
+  }
+
+});

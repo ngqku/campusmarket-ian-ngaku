@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration - CampusMarket</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Minimal Header -->
+  <header class="global-header" style="padding: 1rem 2rem; border-bottom: 1px solid #e2e8f0;">
+    <a href="catalog.html" style="text-decoration: none; font-size: 1.25rem; font-weight: 700; color: #1e293b;">
+      ← Back to Catalog
+    </a>
+  </header>
+
+  <main class="register-container">
+    <h2>Account Registration</h2>
+    <p style="color: #64748b; margin-bottom: 1.5rem; font-size: 0.9rem;">
+      Register to upload items on CampusMarket. Submit your student ID card image for admin verification.
+    </p>
+
+    <!-- Global Error/Success Feedback Message Box -->
+    <div id="form-alert" class="alert-box"></div>
+
+    <form id="registration-form" novalidate>
+      
+      <!-- 1. Full Name -->
+      <div class="form-group">
+        <label for="full-name">Full Name *</label>
+        <input type="text" id="full-name" placeholder="e.g., Jane Doe">
+      </div>
+
+      <!-- 2. Campus ID -->
+      <div class="form-group">
+        <label for="campus-id">Campus Student ID Number *</label>
+        <input type="text" id="campus-id" placeholder="e.g., S123/4567/2023">
+      </div>
+
+      <!-- 3. Phone Number -->
+      <div class="form-group">
+        <label for="phone-number">Phone Number *</label>
+        <input type="tel" id="phone-number" placeholder="e.g., 0712345678 or +254712345678">
+      </div>
+
+      <!-- 4. Campus Email -->
+      <div class="form-group">
+        <label for="student-email">Campus Email Address *</label>
+        <input type="email" id="student-email" placeholder="student@campus.edu">
+      </div>
+
+      <!-- 5. Student ID Image Upload (Admin Verification) -->
+      <div class="form-group">
+        <label for="student-id-card">Upload Student ID Photo (For Admin Verification) *</label>
+        <input type="file" id="student-id-card" accept="image/*">
+        <!-- Live Image Preview Element -->
+        <img id="id-card-preview" class="file-preview-box" alt="Student ID Card Preview">
+      </div>
+
+      <!-- 6. Password with Show/Hide Toggle -->
+      <div class="form-group">
+        <label for="account-password">Password *</label>
+        <div class="password-wrapper">
+          <input type="password" id="account-password" placeholder="Minimum 6 characters">
+          <button type="button" class="toggle-pw-btn" id="toggle-pw-1">Show</button>
+        </div>
+      </div>
+
+      <!-- 7. Confirm Password -->
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password *</label>
+        <div class="password-wrapper">
+          <input type="password" id="confirm-password" placeholder="Re-enter your password">
+          <button type="button" class="toggle-pw-btn" id="toggle-pw-2">Show</button>
+        </div>
+      </div>
+
+      <!-- Submit CTA -->
+      <button type="submit" id="submit-reg-btn" class="btn btn-primary" style="width: 100%; padding: 0.85rem; margin-top: 1rem; font-weight: 700; cursor: pointer;">
+        Submit Registration
+      </button>
+
+    </form>
+  </main>
+
+  <!-- External JS File attached with event listeners -->
+  <script src="app.js"></script>
+</body>
+</html>
