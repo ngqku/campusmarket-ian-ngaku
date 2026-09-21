@@ -56,17 +56,25 @@
       <!-- Catalog Header & Category Pills -->
       <header class="catalog-header" id="catalog-header">
         
-        <div class="catalog-headline-block">
+        <div class="catalog-search-wrapper" style="margin-top: 0rem; margin-bottom: 1.5rem;">
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Search textbooks, electronics, dorm gear..." 
+            onkeyup="filterProducts()" 
+            style="width: 100%; max-width: 500px; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem;"
+          >
+        </div>
           
         <!-- Static Category Pill Navigation -->
         <nav class="category-filters-nav" aria-label="Product categories">
-          <ul class="category-filter-list" id="category-filter-pills">
-            <li><a href="#all" class="filter-pill active" id="filter-all">All Items</a></li>
-            <li><a href="#textbooks" class="filter-pill" id="filter-textbooks">Books</a></li>
-            <li><a href="#dorm" class="filter-pill" id="filter-dorm">Dorm Furnishings </a></li>
-            <li><a href="#electronics" class="filter-pill" id="filter-electronics">Electronics</a></li>
-            <li><a href="#lab" class="filter-pill" id="filter-lab">Lab Equipments</a></li>
-          </ul>
+            <ul class="category-filter-list" id="category-filter-pills">
+              <li><a href="javascript:void(0)" class="filter-pill active" onclick="setCategory('all', this)">All Items</a></li>
+              <li><a href="javascript:void(0)" class="filter-pill" onclick="setCategory('books', this)">Books</a></li>
+              <li><a href="javascript:void(0)" class="filter-pill" onclick="setCategory('dorm', this)">Dorm Furnishings</a></li>
+              <li><a href="javascript:void(0)" class="filter-pill" onclick="setCategory('electronics', this)">Electronics</a></li>
+              <li><a href="javascript:void(0)" class="filter-pill" onclick="setCategory('lab', this)">Lab Equipment</a></li>
+            </ul>
         </nav>
 
         <!-- Results Counter & Status Bar -->
@@ -83,7 +91,7 @@
       </header>
 
       <!-- ==================================================================
-           Responsive Product Cards Grid
+           Product Cards Grid
            ================================================================== -->
       <section class="product-grid-section" id="catalog-grid" aria-labelledby="catalog-title">
         <div class="product-grid">
@@ -91,7 +99,7 @@
           <!-- --------------------------------------------------------------
                Product Card 1: Calculus Textbook
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-1">
+          <article class="product-card" id="product-1" data-category="books">
             <span class="condition-badge badge-like-new">Like New</span>
             <div class="card-image">
                 <img src="images/Calculus_ Early Transcendentals.jpeg" alt="Calculus: Early Transcendentals (9th Ed.)" class="product-image">
@@ -127,15 +135,20 @@
               </div>
 
               <div class="card-action-block">
-                <a href="#product-1" class="btn btn-outline" id="btn-view-1">View Details</a>
+                <a href="javascript:void(0)" class="btn-addtocart" id="btn-addtocart-1" onclick="addToCart(1)">Add to cart</a>
               </div>
+            </div>
+            <div class="live-calc-box" style="margin-top: 0rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+              <label for="qty-input-1" style="font-size: 0.85rem; font-weight: 600;">Quantity:</label>
+              <input type="number" id="qty-input-1" value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
+              <span style="font-size: 0.9rem; font-weight: 600;">Total: KES <span id="total-price-1">0.0</span></span>
             </div>
           </article>
 
           <!-- --------------------------------------------------------------
                Product Card 2: Mini-Fridge
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-2">
+          <article class="product-card" id="product-2" data-category="dorm-gear">
             <span class="condition-badge badge-good">Good</span>
             <div class="card-image">
                 <img src="images/Mini Fridge.jpeg" alt="Haier 90L Compact Dorm Mini-Fridge" class="product-image">
@@ -170,15 +183,20 @@
               </div>
 
               <div class="card-action-block">
-                <a href="#product-2" class="btn btn-outline" id="btn-view-2">View Details</a>
+                <a href="javascript:void(0)" class="btn-addtocart" id="btn-addtocart-2" onclick="addToCart(2)">Add to cart</a>
               </div>
+            </div>
+            <div class="live-calc-box" style="margin-top: 0rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+              <label for="qty-input-2" style="font-size: 0.85rem; font-weight: 600;">Quantity:</label>
+              <input type="number" id="qty-input-2" value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
+              <span style="font-size: 0.9rem; font-weight: 600;">Total: KES <span id="total-price-2">0.0</span></span>
             </div>
           </article>
 
           <!-- --------------------------------------------------------------
                Product Card 3: Graphing Calculator
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-3">
+          <article class="product-card" id="product-3" data-category="engineering-stem">
             <span class="condition-badge badge-like-new">Like New</span>
             <div class="card-image">
                 <img src="images/Calculator.jpeg" alt="TI-84 Plus CE Color Graphing Calculator" class="product-image">
@@ -212,15 +230,20 @@
               </div>
 
               <div class="card-action-block">
-                <a href="#product-3" class="btn btn-outline" id="btn-view-3">View Details</a>
+                <a href="javascript:void(0)" class="btn-addtocart" id="btn-addtocart-3" onclick="addToCart(3)">Add to cart</a>
               </div>
+            </div>
+            <div class="live-calc-box" style="margin-top: 0rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+              <label for="qty-input-3" style="font-size: 0.85rem; font-weight: 600;">Quantity:</label>
+              <input type="number" id="qty-input-3" value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
+              <span style="font-size: 0.9rem; font-weight: 600;">Total: KES <span id="total-price-3">0.0</span></span>
             </div>
           </article>
 
           <!-- --------------------------------------------------------------
                Product Card 4: LED Study Desk Lamp
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-4">
+          <article class="product-card" id="product-4" data-category="dorm-gear">
             <span class="condition-badge badge-like-new">Like New</span>
             <div class="card-image">
                 <img src="images/study Lamp.jpeg" alt="TaoTronics Eye-Caring LED Study Desk Lamp" class="product-image">
@@ -254,22 +277,28 @@
               </div>
 
               <div class="card-action-block">
-                <a href="#product-4" class="btn btn-outline" id="btn-view-4">View Details</a>
+                <a href="javascript:void(0)" class="btn-addtocart" id="btn-addtocart-4" onclick="addToCart(4)">Add to cart</a>
               </div>
             </div>
+            <div class="live-calc-box" style="margin-top: 0rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+              <label for="qty-input-4" style="font-size: 0.85rem; font-weight: 600;">Quantity:</label>
+              <input type="number" id="qty-input-4" value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
+              <span style="font-size: 0.9rem; font-weight: 600;">Total: KES <span id="total-price-4">0.0</span></span>
+            </div>
           </article>
+          
 
           <!-- --------------------------------------------------------------
                Product Card 5: Molecular Model Kit
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-5">
+          <article class="product-card" id="product-5" data-category="science">
             <span class="condition-badge badge-good">Good</span>
             <div class="card-image">
                 <img src="images/Organic Molecule Building Sets.jpeg" alt="Organic Chemistry Molecular Model Set" class="product-image">
             </div>
 
             <div class="card-body">
-              <span class="card-category-tag">Chemistry / Biology</span>
+              <span class="card-category-tag">Science</span>
               <h2 class="product-title">Organic Chemistry Molecular Model Set</h2>
               <div class="product-price">
                 <span class="currency-label">KES</span> 2,400
@@ -296,15 +325,20 @@
               </div>
 
               <div class="card-action-block">
-                <a href="#product-5" class="btn btn-outline" id="btn-view-5">View Details</a>
+                <a href="javascript:void(0)" class="btn-addtocart" id="btn-addtocart-5" onclick="addToCart(5)">Add to cart</a>
               </div>
+            </div>
+            <div class="live-calc-box" style="margin-top: 0rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+              <label for="qty-input-5" style="font-size: 0.85rem; font-weight: 600;">Quantity:</label>
+              <input type="number" id="qty-input-5" value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
+              <span style="font-size: 0.9rem; font-weight: 600;">Total: KES <span id="total-price-5">0.0</span></span>
             </div>
           </article>
 
           <!-- --------------------------------------------------------------
                Product Card 6: Noise Cancelling Headphones
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-6">
+          <article class="product-card" id="product-6" data-category="audio-tech">
             <span class="condition-badge badge-good">Good</span>
             <div class="card-image">
                 <img src="images/Headphones .jpeg" alt="Sony WH-CH720N Noise-Cancelling Headphones" class="product-image">
@@ -338,15 +372,20 @@
               </div>
 
               <div class="card-action-block">
-                <a href="#product-6" class="btn btn-outline" id="btn-view-6">View Details</a>
+                <a href="javascript:void(0)" class="btn-addtocart" id="btn-addtocart-6" onclick="addToCart(6)">Add to cart</a>
               </div>
+            </div>
+            <div class="live-calc-box" style="margin-top: 0rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+              <label for="qty-input-6" style="font-size: 0.85rem; font-weight: 600;">Quantity:</label>
+              <input type="number" id="qty-input-6" value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
+              <span style="font-size: 0.9rem; font-weight: 600;">Total: KES <span id="total-price-6">0.0</span></span>
             </div>
           </article>
 
           <!-- --------------------------------------------------------------
                Product Card 7: Ergonomic Mesh Study Chair
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-7">
+          <article class="product-card" id="product-7" data-category="dorm-gear">
             <span class="condition-badge badge-usable">Usable</span>
             <div class="card-image">
               <img src="images/Marsail Ergonomic Mesh Office Chair.jpeg" alt="Ergonomic Mesh Study Chair" class="product-image">
@@ -380,15 +419,20 @@
               </div>
 
               <div class="card-action-block">
-                <a href="#product-7" class="btn btn-outline" id="btn-view-7">View Details</a>
+                <a href="javascript:void(0)" class="btn-addtocart" id="btn-addtocart-7" onclick="addToCart(7)">Add to cart</a>
               </div>
+            </div>
+            <div class="live-calc-box" style="margin-top: 0rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+              <label for="qty-input-7" style="font-size: 0.85rem; font-weight: 600;">Quantity:</label>
+              <input type="number" id="qty-input-7" value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
+              <span style="font-size: 0.9rem; font-weight: 600;">Total: KES <span id="total-price-7">0.0</span></span>
             </div>
           </article>
 
           <!-- --------------------------------------------------------------
                Product Card 8: Countertop Microwave Oven
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-8">
+          <article class="product-card" id="product-8" data-category="dorm-cooking">
             <span class="condition-badge badge-usable">Usable</span>
             <div class="card-image">
               <img src="images/microwave.jpeg" alt="Solstar 20L 700W Countertop Microwave" class="product-image">
@@ -422,8 +466,13 @@
               </div>
 
               <div class="card-action-block">
-                <a href="#product-8" class="btn btn-outline" id="btn-view-8">View Details</a>
+                <a href="javascript:void(0)" class="btn-addtocart" id="btn-addtocart-8" onclick="addToCart(8)">Add to cart</a>
               </div>
+            </div>
+            <div class="live-calc-box" style="margin-top: 0rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+              <label for="qty-input-8" style="font-size: 0.85rem; font-weight: 600;">Quantity:</label>
+              <input type="number" id="qty-input-8" value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
+              <span style="font-size: 0.9rem; font-weight: 600;">Total: KES <span id="total-price-8">0.0</span></span>
             </div>
           </article>
 
@@ -436,7 +485,7 @@
   <!-- ======================================================================
        Global Footer
        ====================================================================== -->
-  <footer class="global-footer" id="global-footer">
+  <footer class="global-footer" id="global-footer" >
     <div class="container">
       
       <div class="footer-grid">
@@ -497,6 +546,6 @@
 
     </div>
   </footer>
-
+<script src="app.js"></script>
 </body>
 </html>
