@@ -4,10 +4,10 @@
    -------------------------------------------------------------------------- */
 :root {
   /* Brand Color Palette */
-  --color-primary: #4F46E5;        /* Tech Marketplace Indigo */
-  --color-primary-hover: #4338CA;  /* Dark Indigo */
+  --color-primary: #800000;        /* Tech Marketplace Indigo */
+  --color-primary-hover: #CC0A00;  /* Dark Indigo */
   --color-primary-light: #EEF2FF;  /* Subtle Indigo Tint */
-  --color-primary-border: #C7D2FE; /* Indigo Accent Border */
+  --color-primary-border: #280201; /* Indigo Accent Border */
 
   /* Neutral Surface & Background System */
   --color-bg: #F9FAFB;             /* Soft Neutral Page Background */
@@ -1385,7 +1385,7 @@ a:hover {
   align-items: center;
   gap: 0.35rem;
   font-weight: 1000;
-  border-color: var(--color-primary-border);
+  
   color: var(--color-primary);
   background-color: var(--color-primary-light);
 }
@@ -1601,3 +1601,6 @@ a:hover {
       color: #166534;
       border: 1px solid #bbf7d0;
     }
+
+
+    

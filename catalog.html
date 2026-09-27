@@ -63,7 +63,7 @@
               id="search-input" 
               placeholder="Search textbooks, electronics, dorm gear..." 
               onkeyup="filterProducts()" 
-              style="width: 100%; max-width: 600px; padding: 0.75rem 1rem; border: 1px solid #4F46E5; --holder-color: black; border-radius: 8px; font-size: 1rem;"
+              style="width: 100%; max-width: 600px; padding: 0.75rem 1rem; border: 1px solid ; --holder-color: black; border-radius: 8px; font-size: 1rem;"
             >
           </div>
           <div class="cart-container">
@@ -108,7 +108,7 @@
           <!-- --------------------------------------------------------------
                Product Card 1: Calculus Textbook
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-1" data-category="books">
+          <article class="product-card" id="product-1" data-category="books" data-stock="2">
             <span class="condition-badge badge-like-new">Like New</span>
             <div class="card-image">
                 <img src="images/Calculus_ Early Transcendentals.jpeg" alt="Calculus: Early Transcendentals (9th Ed.)" class="product-image">
@@ -125,7 +125,9 @@
                 Hardcover Stewart 9th Edition. Immaculate condition, no pencil markings or folded pages. Includes unused WebAssign companion code insert.
               </p>
             </div>
-
+            <p class="product-stock-info">
+              Available: <strong id="stock-count-1">2</strong>
+            </p>
             <!-- Card Bottom: Split Student Details (Left) & Action Button (Right) -->
             <div class="card-footer-split">
               <div class="student-info-block">
@@ -149,7 +151,7 @@
             </div>
             <div class="live-calc-box" style="margin-top: 0rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
               <label for="qty-input-1" style="font-size: 0.85rem; font-weight: 600;">Quantity:</label>
-              <input type="number" id="qty-input-1" value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
+              <input type="number" id="qty-input-1" readonly value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
               <span style="font-size: 0.9rem; font-weight: 600;">Total: KES <span id="total-price-1">0.0</span></span>
             </div>
           </article>
@@ -157,13 +159,13 @@
           <!-- --------------------------------------------------------------
                Product Card 2: Mini-Fridge
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-2" data-category="dorm">
+          <article class="product-card" id="product-2" data-category="dorm" data-stock="1">
             <span class="condition-badge badge-good">Good</span>
             <div class="card-image">
                 <img src="images/Mini Fridge.jpeg" alt="Haier 90L Compact Dorm Mini-Fridge" class="product-image">
 
             </div>
-
+           
             <div class="card-body">
               <span class="card-category-tag">Dorm Furnishings</span>
               <h2 class="product-title">Haier 90L Compact Dorm Mini-Fridge</h2>
@@ -174,6 +176,10 @@
                 Ultra-quiet compressor with dedicated mini freezer section. Cools drinks rapidly. Minor exterior scuff, immaculate interior shelves.
               </p>
             </div>
+
+            <p class="product-stock-info">
+              Available Stock: <strong id="stock-count-1">1</strong>
+            </p>
 
             <div class="card-footer-split">
               <div class="student-info-block">
@@ -197,7 +203,7 @@
             </div>
             <div class="live-calc-box" style="margin-top: 0rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
               <label for="qty-input-2" style="font-size: 0.85rem; font-weight: 600;">Quantity:</label>
-              <input type="number" id="qty-input-2" value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
+              <input type="number" id="qty-input-2" value="0" readonly min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
               <span style="font-size: 0.9rem; font-weight: 600;">Total: KES <span id="total-price-2">0.0</span></span>
             </div>
           </article>
@@ -205,7 +211,7 @@
           <!-- --------------------------------------------------------------
                Product Card 3: Graphing Calculator
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-3" data-category="electronics">
+          <article class="product-card" id="product-3" data-category="electronics" data-stock="4">
             <span class="condition-badge badge-like-new">Like New</span>
             <div class="card-image">
                 <img src="images/Calculator.jpeg" alt="TI-84 Plus CE Color Graphing Calculator" class="product-image">
@@ -221,6 +227,10 @@
                 Vibrant backlit color screen with rechargeable lithium battery. Comes with protective slide-on hard case and micro-USB charging cable.
               </p>
             </div>
+
+            <p class="product-stock-info">
+              Available Stock: <strong id="stock-count-1">4</strong>
+            </p>
 
             <div class="card-footer-split">
               <div class="student-info-block">
@@ -244,7 +254,7 @@
             </div>
             <div class="live-calc-box" style="margin-top: 0rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
               <label for="qty-input-3" style="font-size: 0.85rem; font-weight: 600;">Quantity:</label>
-              <input type="number" id="qty-input-3" value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
+              <input type="number" id="qty-input-3" readonly value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
               <span style="font-size: 0.9rem; font-weight: 600;">Total: KES <span id="total-price-3">0.0</span></span>
             </div>
           </article>
@@ -252,7 +262,7 @@
           <!-- --------------------------------------------------------------
                Product Card 4: LED Study Desk Lamp
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-4" data-category="electronics">
+          <article class="product-card" id="product-4" data-category="electronics" data-stock="1">
             <span class="condition-badge badge-like-new">Like New</span>
             <div class="card-image">
                 <img src="images/study Lamp.jpeg" alt="TaoTronics Eye-Caring LED Study Desk Lamp" class="product-image">
@@ -268,6 +278,10 @@
                 Flicker-free warm and cool illumination with 5 color temperatures and 7 dimming levels. Features built-in 5V USB output for night phone charging.
               </p>
             </div>
+
+            <p class="product-stock-info">
+              Available Stock: <strong id="stock-count-1">1</strong>
+            </p>
 
             <div class="card-footer-split">
               <div class="student-info-block">
@@ -300,7 +314,7 @@
           <!-- --------------------------------------------------------------
                Product Card 5: Molecular Model Kit
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-5" data-category="lab">
+          <article class="product-card" id="product-5" data-category="lab" data-stock="7">
             <span class="condition-badge badge-good">Good</span>
             <div class="card-image">
                 <img src="images/Organic Molecule Building Sets.jpeg" alt="Organic Chemistry Molecular Model Set" class="product-image">
@@ -313,9 +327,12 @@
                 <span class="currency-label">KES</span> 2,400
               </div>
               <p class="product-description">
-                Complete 240-piece 3D modeling set with atom centres and flexible single/double bonds. Includes bond disconnect tool. Crucial for CHEM221 stereochemistry.
               </p>
             </div>
+
+            <p class="product-stock-info">
+              Available Stock: <strong id="stock-count-1">7</strong>
+            </p>
 
             <div class="card-footer-split">
               <div class="student-info-block">
@@ -339,7 +356,7 @@
             </div>
             <div class="live-calc-box" style="margin-top: 0rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
               <label for="qty-input-5" style="font-size: 0.85rem; font-weight: 600;">Quantity:</label>
-              <input type="number" id="qty-input-5" value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
+              <input type="number" id="qty-input-5"readonly value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
               <span style="font-size: 0.9rem; font-weight: 600;">Total: KES <span id="total-price-5">0.0</span></span>
             </div>
           </article>
@@ -347,7 +364,7 @@
           <!-- --------------------------------------------------------------
                Product Card 6: Noise Cancelling Headphones
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-6" data-category="electronics">
+          <article class="product-card" id="product-6" data-category="electronics" data-stock="4">
             <span class="condition-badge badge-good">Good</span>
             <div class="card-image">
                 <img src="images/Headphones .jpeg" alt="Sony WH-CH720N Noise-Cancelling Headphones" class="product-image">
@@ -363,6 +380,10 @@
                 Dual noise sensor technology with integrated V1 processor. Up to 35-hour battery life. Lightweight ear cushions; ideal for silent library revision.
               </p>
             </div>
+
+            <p class="product-stock-info">
+              Available Stock: <strong id="stock-count-1">4</strong>
+            </p>
 
             <div class="card-footer-split">
               <div class="student-info-block">
@@ -386,7 +407,7 @@
             </div>
             <div class="live-calc-box" style="margin-top: 0rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
               <label for="qty-input-6" style="font-size: 0.85rem; font-weight: 600;">Quantity:</label>
-              <input type="number" id="qty-input-6" value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
+              <input type="number" id="qty-input-6" readonly value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
               <span style="font-size: 0.9rem; font-weight: 600;">Total: KES <span id="total-price-6">0.0</span></span>
             </div>
           </article>
@@ -394,7 +415,7 @@
           <!-- --------------------------------------------------------------
                Product Card 7: Ergonomic Mesh Study Chair
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-7" data-category="dorm">
+          <article class="product-card" id="product-7" data-category="dorm" data-stock="1">
             <span class="condition-badge badge-usable">Usable</span>
             <div class="card-image">
               <img src="images/Marsail Ergonomic Mesh Office Chair.jpeg" alt="Ergonomic Mesh Study Chair" class="product-image">
@@ -410,6 +431,10 @@
                 Pneumatic gas cylinder height adjustment with tilt lock and lumbar curvature. Smooth 360-degree casters. Slight cosmetic fabric fray on left armrest.
               </p>
             </div>
+
+            <p class="product-stock-info">
+              Available Stock: <strong id="stock-count-1">1</strong>
+            </p>
 
             <div class="card-footer-split">
               <div class="student-info-block">
@@ -433,7 +458,7 @@
             </div>
             <div class="live-calc-box" style="margin-top: 0rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
               <label for="qty-input-7" style="font-size: 0.85rem; font-weight: 600;">Quantity:</label>
-              <input type="number" id="qty-input-7" value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
+              <input type="number" id="qty-input-7" readonly value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
               <span style="font-size: 0.9rem; font-weight: 600;">Total: KES <span id="total-price-7">0.0</span></span>
             </div>
           </article>
@@ -441,7 +466,7 @@
           <!-- --------------------------------------------------------------
                Product Card 8: Countertop Microwave Oven
                -------------------------------------------------------------- -->
-          <article class="product-card" id="product-8" data-category="dorm">
+          <article class="product-card" id="product-8" data-category="dorm" data-stock="1">
             <span class="condition-badge badge-usable">Usable</span>
             <div class="card-image">
               <img src="images/microwave.jpeg" alt="Solstar 20L 700W Countertop Microwave" class="product-image">
@@ -457,6 +482,9 @@
                 5 variable cooking power levels and 30-minute mechanical timer dial. Glass turntable runs smoothly. Clean interior; ideal for quick meal prep.
               </p>
             </div>
+            <p class="product-stock-info">
+              Available Stock: <strong id="stock-count-1">1</strong>
+            </p>
 
             <div class="card-footer-split">
               <div class="student-info-block">
@@ -480,7 +508,7 @@
             </div>
             <div class="live-calc-box" style="margin-top: 0rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
               <label for="qty-input-8" style="font-size: 0.85rem; font-weight: 600;">Quantity:</label>
-              <input type="number" id="qty-input-8" value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
+              <input type="number" id="qty-input-8"readonly value="0" min="0" max="10" oninput="calculateTotal()" style="width: 60px; padding: 0.25rem; margin: 0 0.5rem;">
               <span style="font-size: 0.9rem; font-weight: 600;">Total: KES <span id="total-price-8">0.0</span></span>
             </div>
           </article>

@@ -13,22 +13,53 @@ function setCategory(categoryName, clickedElement) {
 
 //Filtering product cards based on serch input
 function filterProducts() {
-  const searchQuery = document.getElementById('search-input').value.toLowerCase().trim();
+  const searchInput = document.getElementById('search-input');
+  const searchQuery = searchInput ? searchInput.value.toLowerCase().trim() : '';
   const productCards = document.querySelectorAll('.product-card');
+
+  if (productCards.length === 0) return;
+
+  // Step 1: Check if any product title matches the typed search query
+  let titleMatchFound = false;
+
+  if (searchQuery !== '') {
+    for (let i = 0; i < productCards.length; i++) {
+      const titleEl = productCards[i].querySelector('.product-title');
+      const titleText = titleEl ? titleEl.textContent.toLowerCase() : '';
+      if (titleText.includes(searchQuery)) {
+        titleMatchFound = true;
+        break; 
+      }
+    }
+  }
+
+  // Step 2: Loop through cards and apply display logic
   let visibleCount = 0;
 
   for (let i = 0; i < productCards.length; i++) {
     const card = productCards[i];
-    
+    const cardCategory = (card.getAttribute('data-category') || '').toLowerCase();
+    const titleEl = card.querySelector('.product-title');
+    const cardTitle = titleEl ? titleEl.textContent.toLowerCase() : '';
 
-    const title = card.querySelector('.product-title').textContent.toLowerCase();
-    const description = card.querySelector('.product-description').textContent.toLowerCase();
-    const cardCategory = card.getAttribute('data-category');
+    // A. Match active category pill selection
+    const matchesPillCategory = (currentCategory === 'all' || cardCategory === currentCategory.toLowerCase());
 
-    const matchesSearch = title.includes(searchQuery) || description.includes(searchQuery);
-    const matchesCategory = (currentCategory === 'all' || cardCategory === currentCategory);
+    // B. Match search input (Title match first, Category fallback second)
+    let matchesSearch = true;
 
-    if (matchesSearch && matchesCategory) {
+    if (searchQuery !== '') {
+      if (titleMatchFound) {
+        // Direct title match
+        matchesSearch = cardTitle.includes(searchQuery);
+      } else {
+        // Fallback: No titles matched, check if search word matches category name
+        matchesSearch = cardCategory.includes(searchQuery);
+      }
+    }
+
+    // C. Apply display state
+    if (matchesPillCategory && matchesSearch) {
       card.style.display = 'block';
       visibleCount++;
     } else {
@@ -36,10 +67,10 @@ function filterProducts() {
     }
   }
 
-  // Live update visible count indicator
-  const countElement = document.getElementById('results-count-num');
-  if (countElement) {
-    countElement.textContent = visibleCount;
+  // Step 3: Toggle empty state message if 0 products match
+  const noResultsMsg = document.getElementById('no-results-msg');
+  if (noResultsMsg) {
+    noResultsMsg.style.display = (visibleCount === 0) ? 'block' : 'none';
   }
 }
 
@@ -55,26 +86,40 @@ function addToCart(productId) {
   const card = document.getElementById(`product-${productId}`);
   const qtyInput = document.getElementById(`qty-input-${productId}`);
   const totalDisplay = document.getElementById(`total-price-${productId}`);
+  const errorMsgEl = document.getElementById(`qty-error-${productId}`);
 
   if (!card || !qtyInput || !totalDisplay) return;
 
-  // 1. Increment current quantity by 1 (starts at 1 if currently 0 or empty)
+  // 1. Read product-specific max stock from data-stock attribute
+  const maxStock = parseInt(card.getAttribute('data-stock')) || 1;
   let currentQty = parseInt(qtyInput.value) || 0;
-  let newQty = currentQty + 1;
 
-  // 2. Update quantity value on the product card
+  // 2. VALIDATION: Check against item's specific stock limit
+  if (currentQty >= maxStock) {
+    if (errorMsgEl) {
+      errorMsgEl.textContent = `Sold Out`;
+      errorMsgEl.style.display = 'block';
+    }
+    return; // Stop execution
+  }
+
+  // Clear error if validation passes
+  if (errorMsgEl) {
+    errorMsgEl.style.display = 'none';
+    errorMsgEl.textContent = '';
+  }
+
+  // 3. Increment & calculate normally
+  let newQty = currentQty + 1;
   qtyInput.value = newQty;
 
-  // 3. Extract unit price from card DOM
-  const priceElement = card.querySelector('.product-price');
-  const priceText = priceElement ? priceElement.textContent : "0";
+  const priceText = card.querySelector('.product-price').textContent;
   const unitPrice = parseFloat(priceText.replace(/[^0-9.]/g, '')) || 0;
-
-  // 4. Update the live card total amount
   const cardTotal = unitPrice * newQty;
+
   totalDisplay.textContent = cardTotal.toLocaleString();
 
-  // 5. Update or add item in cartItems state
+  // 4. Update cart state
   const title = card.querySelector('.product-title').textContent.trim();
   const existingItem = cartItems.find(item => item.id === productId);
 
@@ -89,16 +134,6 @@ function addToCart(productId) {
     });
   }
 
-  // 6. Provide instant button label feedback
-  const cartBtn = document.getElementById(`btn-addtocart-${productId}`);
-  if (cartBtn) {
-    cartBtn.textContent = `In Cart (${newQty}) +1`;
-    setTimeout(() => {
-      cartBtn.textContent = "Add to cart";
-    }, 1000);
-  }
-
-  // 7. Update drawer list and global header totals
   renderCartDrawer();
 }
 
